@@ -1,0 +1,20 @@
+.bo-elem1{
+  width: 30%;
+}
+
+.bo-elem2{
+  width: 30%;
+}
+
+.bo-fs-label{
+  font-size: 1rem;
+}
+
+ul{
+  list-style: square;
+}
+
+.retour-bo{
+  position: absolute;
+  left: 10%;
+}

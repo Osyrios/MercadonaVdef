@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercadona - {% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/bootstrap.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon-m.png')}}">
+  {% block head %}
+  {% endblock %}
+</head>
+
+<body>
+  <header>
+    <nav class="navbar bg-body-secondary border-1 border-bottom border-dark">
+      <div class="container-fluid justify-content-center">
+        <p class="navbar-brand">MERCADONA</p>
+      </div>
+      <div class="container-fluid justify-content-center gap-5">
+        <a href="{{url_for('homepage.homepage')}}" class="navbar-brand btn text-success fs-6">Accueil</a>
+        <a href="{{url_for('catalogue.catalogue')}}" class="navbar-brand text-success fs-6">Catalogue</a>
+        <a href="{{url_for('login.login')}}" class="navbar-brand text-success fs-6">Connexion admin</a>
+            {% block liens %}
+            {% endblock %}
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+
+  <footer class="foot navbar bg-body-secondary justify-content-center fixed-bottom border-1 border-top border-dark">
+    <div >
+      <p>Mercadona - copyright 2023</p>
+    </div>
+  </footer>
+
+
+
+  <script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+  <script src="{{url_for('static', filename='scripts/catalogue.js')}}"></script>
+</body>
+
+
+</html>

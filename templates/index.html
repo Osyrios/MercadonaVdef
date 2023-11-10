@@ -1,0 +1,57 @@
+{# Héritage de base.html #}
+{% extends "base.html" %}
+
+
+{# modification de la balise Title #}
+{% block title %}Homepage{% endblock %}
+
+
+{# Ajout du CSS personnalisé pour cette page dans le head de base.html #}
+{% block head %}
+{{ super() }}
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style-index.css')}}" />
+{% endblock  %}
+
+
+{# Ajout des liens de navigation propre a la page #}
+{% block liens %}
+{% endblock  %}
+
+
+{# Ajout du content propre à la page #}
+{% block content %}
+  <h1 class="mt-5 p-3 text-center text-success fw-bold">Bienvenue</h1>
+  <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+
+    <div>
+      <div class="my-4">
+        <p>Bonjour, vous vous trouvez sur le nouveau site de votre enseigne préférée !</p>
+      </div>
+      <div class="my-5">
+        <p>Comme vous le savez, l'écologie est une priorité chez Mercadona.<br>
+          En ce sens, nous avons décidé de mettre fin aux prospectus papiers.
+        </p>
+      </div>
+      <div class="my-5">
+        <p>Vous trouverez désormais tous nos articles disponible ainsi que les promotions
+          en cours dans l'onglet "Catalogue"</p>
+      </div>
+      <div class="my-4">
+        <p>
+          Nous vous souhaitons une agréable visite et esperons que vous trouverez votre bonheurs
+          parmis nos articles
+        </p>
+      </div>
+    </div>
+
+    <div class="my-4 fw-bold fst-italic fw-bold text-end px-5 mx-5 text-success">
+      <p>L'équipe Mercadona</p>
+    </div>
+
+  </div>
+
+
+<script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+
+{% endblock %}

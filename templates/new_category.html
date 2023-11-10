@@ -1,0 +1,59 @@
+{# Héritage de base.html #}
+{% extends "base.html" %}
+
+{# modification de la balise Title #}
+{% block title %}Homepage{% endblock %}
+
+{# Ajout du CSS personnalisé pour cette page dans le head de base.html #}
+{% block head %}
+{{ super() }}
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style-new_category.css')}}" />
+{% endblock  %}
+
+{# Ajout des liens de navigation propre a la page #}
+{% block liens %}
+{% endblock  %}
+
+
+{# Ajout du content propre à la page #}
+{% block content %}
+
+    <a href="{{ url_for('back_office.back_office') }}"
+       class="btn btn-success retour-bo">
+        Retour au back-office
+    </a>
+
+    <div class="container-fluid m-5 p-4 d-flex flex-column align-items-center">
+        <div class="bo-elem1 border border-2 border-success rounded-4 mb-5">
+            <form class="bo-fs-label" method="POST" action="{{url_for('categoryWs.create_category')}}">
+                <div class="form-group pb-3 px-3 text-center">
+                    <label for="libelle" class="bo-fs-label fw-bold m-3">Nom de la nouvelle catégorie a créer</label>
+                    <input type="text" class="form-control" name ="libelle" id="libelle">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-success text-center m-2">
+                </div>
+            </form>
+        </div>
+
+
+        <div class="bo-elem2 border border-2 border-success rounded-4 overflow-scroll" >
+            <div class="text-center m-3" >
+                <p class="bo-fs-label fw-bold">Catégories déjà présentes et disponibles</p>
+            </div>
+
+            <div class="m-3">
+                <ul class="m-3">
+                    {% for categorie in categories %}
+                        <li class="m-1">{{ categorie }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+<script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+{% endblock %}

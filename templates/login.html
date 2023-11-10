@@ -1,0 +1,58 @@
+{# Héritage de base.htmlt #}
+{% extends "base.html" %}
+
+
+{# modification de la balise Title #}
+{% block title %}Login{% endblock title %}
+
+
+{# Ajout du CSS personnalisé pour cette page dans le head de base.html #}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='styles/style-login.css')}}" />
+{% endblock head %}
+
+
+{# Ajout des liens de navigation propre a la page #}
+{% block liens %}
+{% endblock liens %}
+
+
+{# Ajout du content propre à la page #}
+{% block content %}
+<div class="container-fluid boxform">
+  <div class="container-fluid connexionform">
+
+    <form action="{{url_for('login.traitement')}}" method="POST">
+
+      <p class="mb-3">
+        <label for="id" class="form-label">Identifiant</label>
+        <input type="text" class="form-control" name="id" id="id">
+      </p>
+
+      <p class="mb-3">
+        <label for="mdp" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" name="mdp" id="mdp">
+      </p>
+
+      <p style="display: flex; justify-content:center;">
+        <input type="submit" value="Connexion" class="btn btn-success">
+      </p>
+
+  {# CONDITION SI LA CONNEXION A ECHOUEE LE MESSAGE SE RAJOUTE #}
+    {%if connexion==False %}
+      <p class="text-danger">
+        Identifiant ou mot de passe incorrect
+      </p>
+    {% else %}
+    {% endif %}
+    </form>
+
+
+  </div>
+</div>
+
+
+<script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+{% endblock content%}

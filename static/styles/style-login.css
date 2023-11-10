@@ -1,0 +1,23 @@
+body{
+  background: linear-gradient(180deg, rgba(233,236,239,1) 0%, rgba(20,108,67,1) 35%, rgba(20,108,67,1) 65%, rgba(233,236,239,1) 100%);
+}
+
+
+.boxform{
+
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.connexionform{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 20%;
+  border-radius: 16px;
+  background-color: #e9ecef ;
+}
