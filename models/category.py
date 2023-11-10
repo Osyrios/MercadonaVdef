@@ -1,9 +1,21 @@
 import json
-
 from database.database import db
+
+"""
+Nom du script: 
+    category.py
+Description: 
+    initialisation de la classe category en base de données ainsi que mise en place des getter et setter et 
+    fonction de transformation d'objet python en JSON et de transformation de json en objet python
+Dernière revue: 
+    10 novembre 2023
+Par: 
+    Yassine Négoce
+"""
 
 
 class Category(db.Model):
+    """création de la table Category en base de données"""
     _id_category = db.Column('id_category', db.Integer, primary_key=True, autoincrement=True, nullable=True)
     _libelle = db.Column('libelle', db.String, unique=True, nullable=False, )
     # Création de la relation one to many entre la classe Device et la classe Category
@@ -44,4 +56,5 @@ class Category(db.Model):
 
     @staticmethod
     def from_json(json_dct):
+        """Transforme un dictionnaire JSON en un Objet python"""
         return Category(json_dct['libelle'])
