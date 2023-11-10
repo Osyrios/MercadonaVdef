@@ -8,8 +8,7 @@ import base64
 Nom du script: 
     productWs.py
 Description: 
-    Contient la route permettant d'accèder a la page de modification ou de suppression d'un produit selectionner 
-    depuis le back office
+    Contient les fonctions permettant de créer, modifier et supprimer un produit 
 Dernière revue: 
     10 novembre 2023
 Par: 
@@ -19,14 +18,9 @@ Par:
 product_ws = Blueprint('ProductWS', __name__, template_folder='templates1')
 
 
-@product_ws.get('/all_product')
-def get_all_product():
-    data: list[Products] = db.session.query(Products).all()
-    return json.dumps(data, default=Products.to_json)
-
-
 @product_ws.post('/add_product')
 def create_product():
+    """Fonction permettant la création d'un nouveau produit et l'envoi a la base de donnée en tant qu'objet Products"""
     # traitement de l'images upload par l'uitilsateur afin de la convertire en base64
     # vérifie si une images a été envoyer dans la requete
     if "image_data" in request.files:
@@ -61,6 +55,7 @@ def create_product():
 
 @product_ws.post('/update_product/<id_product>')
 def modify_product(id_product: int):
+    """Fonction permettant de modifier les informations d'un produit selectionné"""
     try:
         # Préparation de l'update du produit, on récupère l'ancien objet
         old_product: Products = db.session.query(Products).filter(Products._id_product == id_product).one()
@@ -101,6 +96,7 @@ def modify_product(id_product: int):
 
 @product_ws.post('/<id_product>')
 def delete_product(id_product: int):
+    """Fonction permettant la suppression de l'article selectionné"""
     data: Products = db.session.query(Products).filter(Products._id_product == id_product).one()
     if type(data) is not None:
         db.session.delete(data)

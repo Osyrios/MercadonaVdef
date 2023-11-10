@@ -1,9 +1,21 @@
 import json
-
 from database.database import db
+
+"""
+Nom du script: 
+    products.py
+Description: 
+    initialisation de la classe products en base de données ainsi que mise en place des getter et setter et 
+    fonction de transformation d'objet python en JSON et de transformation de json en objet python
+Dernière revue: 
+    10 novembre 2023
+Par: 
+    Yassine Négoce
+"""
 
 
 class Products(db.Model):
+    """création de la table Products en base de données"""
     _id_product = db.Column('id_product', db.Integer, primary_key=True, autoincrement=True, nullable=True)
     _name = db.Column('name', db.String(70), nullable=False)
     _description = db.Column('description', db.Text, nullable=False)
@@ -15,7 +27,8 @@ class Products(db.Model):
     _promo_amount = db.Column('promo_amount', db.Integer, nullable=True)
 
     # constructor
-    def __init__(self, id_product: int, name: str, category_name: str, description: str, price: float, image_data: str, promo_start,
+    def __init__(self, id_product: int, name: str, category_name: str, description: str, price: float, image_data: str,
+                 promo_start,
                  promo_end, promo_amount: int):
         self._id_product = id_product
         self._name = name
@@ -131,6 +144,7 @@ class Products(db.Model):
     # mappage de la création d'un nouveau produit a partir de la reponse Json du formulaire de création
     @staticmethod
     def from_json(json_dct):
+        """Transforme un dictionnaire JSON en un Objet python"""
         return Products(json_dct["id_product"],
                         json_dct["name"],
                         json_dct["category_name"],

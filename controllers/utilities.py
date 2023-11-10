@@ -1,9 +1,21 @@
-from models import products
 from models.category import Category
 from models.products import Products
 
+"""
+Nom du script: 
+    utilities.py
+Description: 
+    Contient les fonctions permettant de récupérer la liste des produits ainsi que la 
+    liste des categories présentent en base de donnée
+Dernière revue: 
+    10 novembre 2023
+Par: 
+    Yassine Négoce
+"""
+
 
 def get_all_category():
+    """Fonction permettant de récupérer toutes les categoeries présentent en base de données"""
     list_category = []
     categories = Category.query.all()
     for category in categories:
@@ -12,6 +24,8 @@ def get_all_category():
 
 
 def get_all_product():
+    """Fonction permettant de récupérer tous les produits présent en base de
+    données sous format json afin de les afficher"""
     list_product = []
     products = Products.query.all()
     for product in products:
@@ -33,18 +47,21 @@ def get_all_product():
 
 
 def get_sorted_product(categorie, sens):
+    """Fonction récuperant les produit en fonction du choix de categorie et du tri selectionné par l'utilisateur"""
     updated_list_products = []
 
-    if categorie == "Choisir une catégorie" :
+    if categorie == "Choisir une catégorie":
         if sens:
             updated_products = Products.query.order_by(Products._price.desc()).all()
         else:
             updated_products = Products.query.order_by(Products._price).all()
     else:
         if sens:
-            updated_products = Products.query.filter(Products._category_name == categorie).order_by(Products._price.desc()).all()
+            updated_products = Products.query.filter(Products._category_name == categorie).order_by(
+                Products._price.desc()).all()
         else:
-            updated_products = Products.query.filter(Products._category_name == categorie).order_by(Products._price).all()
+            updated_products = Products.query.filter(Products._category_name == categorie).order_by(
+                Products._price).all()
 
     for product in updated_products:
         updated_list_products.append(
