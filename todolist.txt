@@ -1,0 +1,12 @@
+Back-office
+- lors de l'ajout d'un article, afficher un message de reussite
+- créer un bouton de deconnexion
+- systeme de cookie pour garder la connexion ouverte un certain temps ? 
+- fonction de recherche d'article par le nom ?
+
+LOGIN
+- sécuriser la connexion par un code et nom présent dans la base admin
+- back office soit pas accessible par method get
+
+BASE
+- voir pour le footer qui reste affiché

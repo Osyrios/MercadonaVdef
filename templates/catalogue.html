@@ -1,0 +1,102 @@
+{# Héritage de base.htmlt #}
+{% extends "base.html" %}
+
+
+{# modification de la balise Title #}
+{% block title %}Catalogue{% endblock title %}
+
+
+{# Ajout du CSS personnalisé pour cette page dans le head de base.html #}
+{% block head %}
+{{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style-catalogue.css')}}">
+{% endblock head %}
+
+
+{# Ajout des liens de navigation propre a la page #}
+{% block liens %}
+{% endblock liens %}
+
+
+{# Ajout du content propre à la page #}
+{% block content %}
+
+    <div class="container d-flex flex-row">
+      <div class="elem elem1 border border-success border-2 rounded-4 p-2 m-2 fs-6">
+        <div>
+          <p class=" catalogue-fs-p text-center text-black">Filtrer les articles</p>
+        </div>
+
+        <form action="" method="" id="filter">
+            <div>
+                {# Zone de filtrage des produits souhaités par catégorie #}
+                <select class="form-select" aria-label="Selection de la categorie">
+                  <option selected>Choisir une catégorie</option>
+                    {% for categorie in categories %}
+                        <option value="{{ categorie }}"> {{ categorie|capitalize }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+              <p class="mt-5 catalogue-fs-p text-center text-black">Ordre d'affichage</p>
+            </div>
+
+            <div>
+               {# Zone de filtrage des produits souhaités par prix #}
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tri-choix" id="croissant" value="croissant">
+                  <label class="catalogue-fs-label form-check-label" for="croissant">
+                    Ordre croissant (du - cher au + cher)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="tri-choix" id="decroissant" value="decroissant">
+                  <label class="catalogue-fs-label form-check-label" for="decroissant">
+                    Ordre décroissant (du + cher au - cher)
+                  </label>
+                </div>
+            </div>
+
+              <div class="mt-4 text-center">
+                  <button type="submit" class="btn btn-success">Appliquer</button>
+              </div>
+        </form>
+      </div>
+
+      {# endroit ou les Articles apparaissent #}
+    <div class="container elem elem2 border-2 rounded-4 p-2 m-2" id="product-display">
+            <div class="row">
+                {% for product in products %}
+
+                    <div class="col-md-3">
+                        <div class="card ">
+                            <h5 class="card-title text-center border border-2 border-black rounded-2 m-0">{{ product.name }}</h5>
+                            <img src="data:image;base64,{{ product.image_data }}" class="card-img-top" alt="Image 1">
+                            <div class="card-body">
+                                <p class="card-text">{{ product.category_name }}</p>
+                                <p class="card-text">{{ product.description }}</p>
+                            {% if product.promo_start != product.promo_end %}
+                                {% if product.promo_end > today %}
+                                    <p style="color:red">PROMO</p>
+                                    <p class="card-text">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
+                                    <p class="card-text"><span class="old-price">{{ product.price }}</span>
+                                        Nouveau prix: <span class="new-price">{{ product.new_price| round(2) | float }}€</span></p>
+                                {% else %}
+                                    <p class="card-text">Prix: {{ product.price }}€</p>
+                                {% endif %}
+                            {% else %}
+                                    <p class="card-text">Prix: {{ product.price }}€</p>
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+<script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/catalogue.js')}}"></script>
+{% endblock content %}
