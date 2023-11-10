@@ -1,14 +1,26 @@
 import json
-
 from flask import render_template, Blueprint
-
 from models.products import Products
+
+"""
+Nom du script: 
+    product_update.py
+Description: 
+    Contient la route permettant d'accèder a la page de modification ou de suppression d'un produit selectionner 
+    depuis le back office
+Dernière revue: 
+    10 novembre 2023
+Par: 
+    Yassine Négoce
+"""
 
 product_update_bp = Blueprint('product_update', __name__, template_folder='templates')
 
 
 @product_update_bp.get("/product_update/<int:product_id>")
 def product_update(product_id):
+    """Fonction qui recupère le produit selectionné par l'administrateur et stock les info de ce
+    produit afin des les afficher dans le template de modification de produit"""
     product = Products.query.get(product_id)
     if product is not None:
         product_to_modify = {
