@@ -4,6 +4,18 @@ from database.database import db
 import json
 import base64
 
+"""
+Nom du script: 
+    productWs.py
+Description: 
+    Contient la route permettant d'accèder a la page de modification ou de suppression d'un produit selectionner 
+    depuis le back office
+Dernière revue: 
+    10 novembre 2023
+Par: 
+    Yassine Négoce
+"""
+
 product_ws = Blueprint('ProductWS', __name__, template_folder='templates1')
 
 

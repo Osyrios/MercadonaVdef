@@ -10,3 +10,10 @@ LOGIN
 
 BASE
 - voir pour le footer qui reste affiché
+
+
+
+
+Verifier la fonction de recuperation des category dans WS...
+
+voir pour que le prix pouvant etre mis avec des virgule

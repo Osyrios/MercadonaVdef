@@ -1,12 +1,10 @@
 from flask import Flask
 from sqlalchemy import inspect
-
 from controllers.categoryWs import category_ws
 from controllers.new_category import new_category_bp
 from controllers.product_update import product_update_bp
 from models.category import Category
 from models.products import Products
-
 from controllers.back_office import back_office_bp
 from controllers.catalogue import catalogue_bp
 from controllers.homepage import homepage_bp
@@ -18,7 +16,6 @@ from database.database import db
 app = Flask(__name__)
 
 app.config.from_object(Config)  # import la configuration de la connexion à la base de données
-
 
 app.register_blueprint(product_ws)  # import le blueprint avec les routes dans 'productWs.py'
 app.register_blueprint(category_ws)  # import le blueprint avec les routes dans 'categoryWs.py'
