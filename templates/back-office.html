@@ -19,12 +19,38 @@
 
 {# Ajout du content propre à la page #}
 {% block content %}
+
+<div class="logout">
+    <form action="{{ url_for('logout.logout') }}" method="POST">
+        <button type="submit" class="btn btn-warning">Se déconnecter</button>
+    </form>
+</div>
+
 <div class="container-fluid mb-5 d-flex pb-2">
     {# Zone d'ajout de nouveau produits #}
     <div class="bo-elem1 border border-2 border-success rounded-4 m-2 overflow-scroll">
         <p class="bo-fs-p text-center fw-bold pt-4">Ajouter un nouveau produit</p>
+        {# Affiche un message de succès si l'ajout du produit est une réussite #}
+        {% if add_product_success %}
+            <p class="text-success text-center">Produit ajouté avec succès<br>
+                Vous pouvez proceder a un nouvel enregistrement</p>
+        {% else %}
+        {% endif %}
 
-        <form class="bo-fs-label" method="POST" action="{{url_for('ProductWS.create_product')}}" enctype="multipart/form-data">
+        {# Affiche un message en cas d'erreur sur l'image ajouté ou l'absence d'image #}
+        {% if error_image %}
+            <p class="text-danger text-center">Merci d'ajouter une image valable</p>
+        {% else %}
+        {% endif %}
+
+        {# Affiche un message en cas d'erreur lors de l'ajout du nouveau produit #}
+        {% if error_add_product %}
+            <p class="text-danger text-center">Echec de l'ajout du produit, merci de verifier les informations remplies</p>
+        {% else %}
+        {% endif %}
+
+        <form class="bo-fs-label" method="POST" action="{{url_for('ProductWS.create_product')}}"
+              enctype="multipart/form-data" id="new-product-form">
             <div class="form-group pb-3 px-3">
                 <label for="name">Nom de l'article</label>
                 <input type="text" class="form-control" name ="name" id="name">
@@ -37,7 +63,10 @@
                             <option value="{{ categorie }}"> {{ categorie }}</option>
                         {% endfor %}
                 </select>
-                <a href="{{ url_for('new_category.new_category') }}" class="btn btn-success btn-sm text-center mb-2">Nouvelle catégorie</a>
+                <a href="{{ url_for('new_category.new_category') }}"class="btn btn-success btn-sm text-center mb-2">
+                    Nouvelle catégorie
+                </a>
+
             </div>
 
             <div class="form-group pt-3 px-3">
@@ -50,7 +79,7 @@
             </div>
             <div class="form-group p-3">
                 <label for="price">Prix</label>
-                <input type="number" class="form-control" id="price" name="price">
+                <input type="number" min="0" step="0.01" class="form-control" id="price" name="price">
             </div>
             <div class="form-group p-3">
                 <label for="promo_start">Début promotion</label>
@@ -74,6 +103,19 @@
     <div class="bo-elem2 border border-2 border-success rounded-4 m-2 overflow-scroll">
 
     <p class="bo-fs-p text-center fw-bold pt-4">Modifier un produit</p>
+
+    {# Affiche un message en cas d'erreur lors de la modification du produit #}
+    {% if error_modify_product %}
+        <p class="text-danger text-center">Echec de la mise a jour du produit <br>
+            Aucunes modifications n'as été effectuées</p>
+    {% else %}
+    {% endif %}
+
+    {# Affiche un message en cas d'erreur lors de la suppression du produit #}
+    {% if product_deleted %}
+        <p class="text-success text-center">Produit supprimé avec succès</p>
+    {% else %}
+    {% endif %}
 
     <div class="container d-flex flex-row">
         <div class="elem elem1 border border-success border-2 rounded-4 p-2 m-2 fs-6">

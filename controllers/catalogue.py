@@ -8,7 +8,7 @@ Nom du script:
 Description: 
     Regroupe les deux routes pour l'affichage du catalogue (coté visiteurs)
 Dernière revue: 
-    10 novembre 2023
+    11 novembre 2023
 Par: 
     Yassine Négoce
 """

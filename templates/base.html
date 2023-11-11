@@ -22,7 +22,15 @@
       <div class="container-fluid justify-content-center gap-5">
         <a href="{{url_for('homepage.homepage')}}" class="navbar-brand btn text-success fs-6">Accueil</a>
         <a href="{{url_for('catalogue.catalogue')}}" class="navbar-brand text-success fs-6">Catalogue</a>
-        <a href="{{url_for('login.login')}}" class="navbar-brand text-success fs-6">Connexion admin</a>
+            {% if session.get('user') == 'admin' %}
+                <a href="{{url_for('back_office.back_office')}}" class="navbar-brand text-success fs-6">
+                Back Office(connecté)
+                </a>
+            {% else %}
+                <a href="{{url_for('login.login')}}" class="navbar-brand text-success fs-6">
+                Connexion admin
+                </a>
+            {% endif %}
             {% block liens %}
             {% endblock %}
       </div>

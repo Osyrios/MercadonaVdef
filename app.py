@@ -1,6 +1,7 @@
 from flask import Flask
 from sqlalchemy import inspect
 from controllers.categoryWs import category_ws
+from controllers.logout import logout_bp
 from controllers.new_category import new_category_bp
 from controllers.product_update import product_update_bp
 from models.category import Category
@@ -12,10 +13,13 @@ from controllers.login import login_bp
 from controllers.productWs import product_ws
 from config.config import Config
 from database.database import db
+from datetime import timedelta
 
 app = Flask(__name__)
 
-app.config.from_object(Config)  # import la configuration de la connexion à la base de données
+app.config.from_object(Config)  # import la configuration de l'app
+
+app.permanent_session_lifetime = timedelta(minutes=90)
 
 app.register_blueprint(product_ws)  # import le blueprint avec les routes dans 'productWs.py'
 app.register_blueprint(category_ws)  # import le blueprint avec les routes dans 'categoryWs.py'
@@ -25,6 +29,7 @@ app.register_blueprint(login_bp)  # import le blueprint pour les routes dans 'lo
 app.register_blueprint(back_office_bp)  # import le blueprint les routes dans 'back_office.py'
 app.register_blueprint(product_update_bp)  # import le blueprint avec les routes dans 'product_update.py'
 app.register_blueprint(new_category_bp) # import le blueprint avec les routes dans 'new_category.py'
+app.register_blueprint(logout_bp) # import le blueprint avec les routes dans 'logout.py'
 
 db.init_app(app)
 
