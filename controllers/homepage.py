@@ -6,7 +6,7 @@ Nom du script:
 Description: 
     Contient la route permettant l'accès à la page d'accueil
 Dernière revue: 
-    10 novembre 2023
+    11 novembre 2023
 Par: 
     Yassine Négoce
 """

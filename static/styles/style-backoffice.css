@@ -36,3 +36,9 @@
 .modif{
   font-size: 0.8rem;
 }
+
+.logout{
+  position: absolute;
+  right: 10%;
+  top: 5%;
+}
