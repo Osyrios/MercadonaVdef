@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 app.config.from_object(Config)  # import la configuration de l'app
 
-app.permanent_session_lifetime = timedelta(minutes=90)
+app.permanent_session_lifetime = timedelta(minutes=1)
 
 # Import des routes Blueprint
 app.register_blueprint(product_ws)

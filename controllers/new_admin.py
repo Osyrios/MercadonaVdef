@@ -17,6 +17,8 @@ new_admin_bp = Blueprint('new_admin', __name__, template_folder='templates')
 
 @new_admin_bp.get("/new-admin")
 def new_admin():
-    """Route affichant la page d'ajout de nouvelles catégories ainsi que recupère les categories pour les afficher"""
-    return render_template("create-user.html")
-
+    """Route affichant la page d'ajout de nouveau utilisateurs à la base de donnée"""
+    if session["user"] == "admin":
+        return render_template("create-user.html")
+    else:
+        return redirect(url_for('login.login'))

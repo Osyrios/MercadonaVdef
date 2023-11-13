@@ -1,4 +1,3 @@
-import json
 from flask import render_template, Blueprint, redirect, url_for, session
 from models.products import Products
 
@@ -21,7 +20,7 @@ product_update_bp = Blueprint('product_update', __name__, template_folder='templ
 def product_update(product_id):
     """Fonction qui recupère le produit selectionné par l'administrateur et stock les info de ce
     produit afin des les afficher dans le template de modification de produit"""
-    if session.get('user') == 'admin':
+    if session["user"] == 'admin':
         product = Products.query.get(product_id)
         if product is not None:
             product_to_modify = {
