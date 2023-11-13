@@ -7,19 +7,16 @@ Nom du script:
 Description: 
     Contient la route permettant d'acceder a la page d'ajout de catégories
 Dernière revue: 
-    11 novembre 2023
+    13 novembre 2023
 Par: 
     Yassine Négoce
 """
 
-new_category_bp = Blueprint('new_category', __name__, template_folder='templates')
+new_admin_bp = Blueprint('new_admin', __name__, template_folder='templates')
 
 
-@new_category_bp.get("/new_category")
-def new_category():
+@new_admin_bp.get("/new-admin")
+def new_admin():
     """Route affichant la page d'ajout de nouvelles catégories ainsi que recupère les categories pour les afficher"""
-    if session.get('user') == 'admin':
-        list_category = get_all_category()
-        return render_template("new_category.html", categories=list_category)
-    else:
-        return redirect(url_for('login.login'))
+    return render_template("create-user.html")
+

@@ -1,0 +1,48 @@
+{# Héritage de base.html #}
+{% extends "base.html" %}
+
+{# modification de la balise Title #}
+{% block title %}Homepage{% endblock %}
+
+{# Ajout du CSS personnalisé pour cette page dans le head de base.html #}
+{% block head %}
+{{ super() }}
+  <link rel="stylesheet" href="{{url_for('static', filename='styles/style-new_category.css')}}" />
+{% endblock  %}
+
+{# Ajout des liens de navigation propre a la page #}
+{% block liens %}
+{% endblock  %}
+
+
+{# Ajout du content propre à la page #}
+{% block content %}
+<a href="{{ url_for('back_office.back_office') }}"
+       class="btn btn-success retour-bo">
+        Retour au back-office
+    </a>
+
+    <div class="container-fluid m-5 p-4 d-flex flex-column align-items-center">
+        <div class="bo-elem1 border border-2 border-success rounded-4 mb-5">
+
+
+            <form class="bo-fs-label" method="POST" action="{{url_for('admin_ws.create_user')}}">
+                <div class="form-group pb-3 px-3 text-center">
+                    <label for="identifiant" class="bo-fs-label fw-bold m-3">Identifiant</label>
+                    <input type="text" class="form-control" name ="identifiant" id="identifiant">
+                </div>
+                <div class="form-group pb-3 px-3 text-center">
+                    <label for="password" class="bo-fs-label fw-bold m-3">Mot de passe</label>
+                    <input type="password" class="form-control" name ="password" id="password">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <input type="submit" class="btn btn-success text-center m-2" value="Créer">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
+<script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+{% endblock %}

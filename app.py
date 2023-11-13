@@ -1,9 +1,12 @@
 from flask import Flask
 from sqlalchemy import inspect
+from controllers.adminWs import admin_ws
 from controllers.categoryWs import category_ws
+from controllers.new_admin import new_admin_bp
 from controllers.logout import logout_bp
 from controllers.new_category import new_category_bp
 from controllers.product_update import product_update_bp
+from models.admins import Admins
 from models.category import Category
 from models.products import Products
 from controllers.back_office import back_office_bp
@@ -21,15 +24,18 @@ app.config.from_object(Config)  # import la configuration de l'app
 
 app.permanent_session_lifetime = timedelta(minutes=90)
 
-app.register_blueprint(product_ws)  # import le blueprint avec les routes dans 'productWs.py'
-app.register_blueprint(category_ws)  # import le blueprint avec les routes dans 'categoryWs.py'
-app.register_blueprint(homepage_bp)  # import le blueprint avec les routes dans 'homepage.py'
-app.register_blueprint(catalogue_bp)  # import le blueprint avec les routes dans 'catalogue.py'
-app.register_blueprint(login_bp)  # import le blueprint pour les routes dans 'login.py'
-app.register_blueprint(back_office_bp)  # import le blueprint les routes dans 'back_office.py'
-app.register_blueprint(product_update_bp)  # import le blueprint avec les routes dans 'product_update.py'
-app.register_blueprint(new_category_bp) # import le blueprint avec les routes dans 'new_category.py'
-app.register_blueprint(logout_bp) # import le blueprint avec les routes dans 'logout.py'
+# Import des routes Blueprint
+app.register_blueprint(product_ws)
+app.register_blueprint(category_ws)
+app.register_blueprint(homepage_bp)
+app.register_blueprint(catalogue_bp)
+app.register_blueprint(login_bp)
+app.register_blueprint(back_office_bp)
+app.register_blueprint(product_update_bp)
+app.register_blueprint(new_category_bp)
+app.register_blueprint(logout_bp)
+app.register_blueprint(admin_ws)
+app.register_blueprint(new_admin_bp)
 
 db.init_app(app)
 
@@ -40,6 +46,9 @@ with app.app_context():
 
     if not inspect(db.engine).has_table('products'):
         Products.__table__.create(bind=db.engine)
+
+    if not inspect(db.engine).has_table('admins'):
+        Admins.__table__.create(bind=db.engine)
 
 if __name__ == '__main__':
     app.run()

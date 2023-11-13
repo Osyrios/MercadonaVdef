@@ -1,5 +1,5 @@
-from flask import render_template, Blueprint, request, redirect, url_for, session
-from controllers.utilities import get_all_category, get_all_product
+from flask import render_template, Blueprint, request, redirect, session
+from Utils.utilities import get_all_category, get_all_product
 import datetime
 
 """

@@ -1,6 +1,6 @@
 import datetime
 from flask import render_template, Blueprint, request, jsonify
-from controllers.utilities import get_all_category, get_all_product, get_sorted_product
+from Utils.utilities import get_all_category, get_all_product, get_sorted_product
 
 """
 Nom du script: 
