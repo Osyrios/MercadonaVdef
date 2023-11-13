@@ -26,6 +26,13 @@
     </form>
 </div>
 
+
+<div class="create-user">
+    <form action="{{ url_for('new_admin.new_admin') }}" method="GET">
+        <button type="submit" class="btn btn-light">Créer Utilisateur</button>
+    </form>
+</div>
+
 <div class="container-fluid mb-5 d-flex pb-2">
     {# Zone d'ajout de nouveau produits #}
     <div class="bo-elem1 border border-2 border-success rounded-4 m-2 overflow-scroll">

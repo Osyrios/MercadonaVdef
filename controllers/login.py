@@ -1,5 +1,7 @@
 from flask import render_template, Blueprint, request, redirect, url_for, session
 
+from models.admins import Admins
+
 """
 Nom du script: 
     login.py
@@ -29,6 +31,7 @@ def traitement():
         input_login = request.form
         identifiant_login = input_login.get('id')
         password_login = input_login.get('mdp')
+
         if identifiant_login == 'admin' and password_login == 'admin':
             session['user'] = 'admin'
             session.permanent = False
