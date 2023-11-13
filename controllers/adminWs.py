@@ -2,6 +2,17 @@ from flask import Blueprint, request, redirect, url_for
 from database.database import db
 from models.admins import Admins
 
+"""
+Nom du script: 
+    adminWs.py
+Description: 
+    Contient la fonction de création de nouvel utilisateur
+Dernière revue: 
+    13 novembre 2023
+Par: 
+    Yassine Négoce
+"""
+
 admin_ws = Blueprint('admin_ws', __name__, template_folder='templates')
 
 
