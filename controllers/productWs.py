@@ -10,7 +10,7 @@ Nom du script:
 Description: 
     Contient les fonctions permettant de créer, modifier et supprimer un produit 
 Dernière revue: 
-    11 novembre 2023
+    13 novembre 2023
 Par: 
     Yassine Négoce
 """

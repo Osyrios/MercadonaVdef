@@ -16,9 +16,11 @@ config_bcrypt = bcrypt.gensalt()
 
 
 def encode_password(password: str) -> bytes:
+    """Fonction qui encode le mot de passe"""
     return bcrypt.hashpw(bytes(password, encoding='utf-8')
                          , config_bcrypt)
 
 
 def password_check(password_input, hashed_password):
+    """Fonction qui verifie la correspondance entre deux string crypté"""
     return bcrypt.checkpw(password_input.encode('utf-8'), hashed_password.encode('utf-8'))

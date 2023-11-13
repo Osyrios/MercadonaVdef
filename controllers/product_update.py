@@ -8,7 +8,7 @@ Description:
     Contient la route permettant d'accèder a la page de modification ou de suppression d'un produit selectionner 
     depuis le back office
 Dernière revue: 
-    11 novembre 2023
+    13 novembre 2023
 Par: 
     Yassine Négoce
 """
@@ -17,7 +17,7 @@ product_update_bp = Blueprint('product_update', __name__, template_folder='templ
 
 
 @product_update_bp.get("/product_update/<int:product_id>")
-def product_update(product_id):
+def product_update(product_id: int):
     """Fonction qui recupère le produit selectionné par l'administrateur et stock les info de ce
     produit afin des les afficher dans le template de modification de produit"""
     if session["user"] == 'admin':
