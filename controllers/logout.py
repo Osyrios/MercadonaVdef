@@ -6,7 +6,7 @@ Nom du script:
 Description:
     Contient la fonction permettant la deconnexion de l'administrateur
 Dernière revue:
-    11 novembre 2023
+    13 novembre 2023
 Par:
     Yassine Négoce
 """

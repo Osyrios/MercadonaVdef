@@ -5,7 +5,7 @@ from Utils.utilities import get_all_category
 Nom du script: 
     new_admin.py
 Description: 
-    Contient la route permettant d'acceder a la page d'ajout de nouvel utilisateur
+    Contient la route permettant d'acceder a la page d'ajout de nouvel utilisateur 
 Dernière revue: 
     13 novembre 2023
 Par: 

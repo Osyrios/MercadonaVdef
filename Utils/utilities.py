@@ -83,8 +83,8 @@ def get_sorted_product(categorie, sens):
 
 
 def get_all_users():
+    """Fonction qui récupère la liste des user présent en base de données"""
     users_list = []
-
     users = Admins.query.all()
     for user in users:
         users_list.append(

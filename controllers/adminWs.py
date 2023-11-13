@@ -18,6 +18,7 @@ admin_ws = Blueprint('admin_ws', __name__, template_folder='templates')
 
 @admin_ws.post('/create-user')
 def create_user():
+    """Fonction qui créer un nouvel utilisateur en base de donnée ayant accès au abck office"""
     try:
         data = {
             "identifiant": request.form.get('identifiant'),

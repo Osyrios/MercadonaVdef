@@ -10,7 +10,7 @@ Description:
     Contient la route d'affichage du formulaire de connexion ainsi que la fonction de 
     verification des identifiant pour la connexion au back office
 Dernière revue: 
-    11 novembre 2023
+    13 novembre 2023
 Par: 
     Yassine Négoce
 """
