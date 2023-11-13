@@ -1,3 +1,4 @@
+from models.admins import Admins
 from models.category import Category
 from models.products import Products
 
@@ -79,3 +80,17 @@ def get_sorted_product(categorie, sens):
             }
         )
     return updated_list_products
+
+
+def get_all_users():
+    users_list = []
+
+    users = Admins.query.all()
+    for user in users:
+        users_list.append(
+            {
+                "identifiant": user._identifiant,
+                "password": user._password,
+            }
+        )
+    return users_list

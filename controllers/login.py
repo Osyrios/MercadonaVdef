@@ -1,6 +1,7 @@
 from flask import render_template, Blueprint, request, redirect, url_for, session
 
-from models.admins import Admins
+from Utils.Password import encode_password, password_check
+from Utils.utilities import get_all_users
 
 """
 Nom du script: 
@@ -32,7 +33,10 @@ def traitement():
         identifiant_login = input_login.get('id')
         password_login = input_login.get('mdp')
 
-        if identifiant_login == 'admin' and password_login == 'admin':
+        users = get_all_users()
+        user_found = next((user for user in users if user['identifiant'] == identifiant_login), None)
+
+        if user_found and password_check(password_login, user_found['password']):
             session['user'] = 'admin'
             session.permanent = False
             return redirect(url_for('back_office.back_office'))

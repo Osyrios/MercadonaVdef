@@ -19,8 +19,7 @@ class Admins(db.Model):
 
     def __init__(self, identifiant: str, password: str):
         self._identifiant = identifiant
-        self._password = encode_password(password)\
-            .decode(encoding='utf-8')
+        self._password = encode_password(password).decode(encoding='utf-8')
 
     # Getter de l'identifiant
     @property
