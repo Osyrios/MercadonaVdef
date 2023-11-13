@@ -1,5 +1,3 @@
-from flask import session
-
 from models.admins import Admins
 from models.category import Category
 from models.products import Products
@@ -8,10 +6,10 @@ from models.products import Products
 Nom du script: 
     utilities.py
 Description: 
-    Contient les fonctions permettant de récupérer la liste des produits ainsi que la 
-    liste des categories présentent en base de donnée
+    Contient les fonctions permettant de récupérer la liste des produits, la 
+    liste des categories ainsi que la liste des user présent en base de donnée
 Dernière revue: 
-    10 novembre 2023
+    13 novembre 2023
 Par: 
     Yassine Négoce
 """
