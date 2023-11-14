@@ -8,7 +8,7 @@ Description:
     initialisation de la classe products en base de données ainsi que mise en place des getter et setter et 
     fonction de transformation d'objet python en JSON et de transformation de json en objet python
 Dernière revue: 
-    13 novembre 2023
+    14 novembre 2023
 Par: 
     Yassine Négoce
 """

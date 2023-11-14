@@ -9,7 +9,7 @@ Nom du script:
 Description: 
     Contient les fonctions d'ajout des catégories en base de données
 Dernière revue: 
-    13 novembre 2023
+    14 novembre 2023
 Par: 
     Yassine Négoce
 """

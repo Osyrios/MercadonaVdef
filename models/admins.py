@@ -7,7 +7,7 @@ Nom du script:
 Description: 
     initialisation de la classe admins
 Dernière revue: 
-    13 novembre 2023
+    14 novembre 2023
 Par: 
     Yassine Négoce
 """

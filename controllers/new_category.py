@@ -7,7 +7,7 @@ Nom du script:
 Description: 
     Contient la route permettant d'acceder a la page d'ajout de catégories
 Dernière revue: 
-    13 novembre 2023
+    14 novembre 2023
 Par: 
     Yassine Négoce
 """
