@@ -8,7 +8,7 @@ Description:
     Contient la route permettant d'accèder a la page de modification ou de suppression d'un produit selectionner 
     depuis le back office
 Dernière revue: 
-    13 novembre 2023
+    14 novembre 2023
 Par: 
     Yassine Négoce
 """
