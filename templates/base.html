@@ -6,8 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mercadona - {% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{{url_for('static', filename='styles/bootstrap.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+  <link href="{{url_for('static',filename='styles/output.css')}}" rel="stylesheet">
   <link rel="icon" href="{{ url_for('static', filename='images/favicon-m.png')}}">
   {% block head %}
   {% endblock %}
@@ -15,22 +14,28 @@
 
 <body>
   <header>
-    <nav class="navbar bg-body-secondary border-1 border-bottom border-dark">
-      <div class="container-fluid justify-content-center">
-        <p class="navbar-brand">MERCADONA</p>
+    <nav class="flex flex-col items-center bg-green-600">
+      <div class="p-2">
+        <p class="font-RobotoBold">MERCADONA</p>
       </div>
-      <div class="container-fluid justify-content-center gap-5">
-        <a href="{{url_for('homepage.homepage')}}" class="navbar-brand btn text-success fs-6">Accueil</a>
-        <a href="{{url_for('catalogue.catalogue')}}" class="navbar-brand text-success fs-6">Catalogue</a>
-            {% if session.get('user') == 'admin' %}
-                <a href="{{url_for('back_office.back_office')}}" class="navbar-brand text-success fs-6">
-                Back Office(connecté)
-                </a>
-            {% else %}
-                <a href="{{url_for('login.login')}}" class="navbar-brand text-success fs-6">
-                Connexion admin
-                </a>
-            {% endif %}
+      <div class="w-full flex flex-row justify-evenly gap-3 mb-3">
+          <div class="">
+            <a href="{{url_for('homepage.homepage')}}" class="">Accueil</a>
+          </div>
+          <div class="">
+            <a href="{{url_for('catalogue.catalogue')}}" class="">Catalogue</a>
+          </div>
+          <div class="">
+                {% if session.get('user') == 'admin' %}
+                    <a href="{{url_for('back_office.back_office')}}" class="">
+                    Back Office(connecté)
+                    </a>
+                {% else %}
+                    <a href="{{url_for('login.login')}}" class="">
+                    Admin
+                    </a>
+                {% endif %}
+          </div>
             {% block liens %}
             {% endblock %}
       </div>
