@@ -14,24 +14,24 @@
 
 <body>
   <header>
-    <nav class="flex flex-col items-center bg-green-600">
-      <div class="p-2">
-        <p class="font-RobotoBold">MERCADONA</p>
+    <nav class="flex flex-col items-center bg-gray-300 drop-shadow">
+      <div class="p-2 my-3">
+        <p class="font-RobotoBold text-green-700">MERCADONA</p>
       </div>
-      <div class="w-full flex flex-row justify-evenly gap-3 mb-3">
+      <div class="w-full flex flex-row justify-evenly gap-3 mb-3 text-green-700">
           <div class="">
-            <a href="{{url_for('homepage.homepage')}}" class="">Accueil</a>
+            <a href="{{url_for('homepage.homepage')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">Accueil</a>
           </div>
           <div class="">
-            <a href="{{url_for('catalogue.catalogue')}}" class="">Catalogue</a>
+            <a href="{{url_for('catalogue.catalogue')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">Catalogue</a>
           </div>
           <div class="">
                 {% if session.get('user') == 'admin' %}
-                    <a href="{{url_for('back_office.back_office')}}" class="">
+                    <a href="{{url_for('back_office.back_office')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">
                     Back Office(connecté)
                     </a>
                 {% else %}
-                    <a href="{{url_for('login.login')}}" class="">
+                    <a href="{{url_for('login.login')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">
                     Admin
                     </a>
                 {% endif %}
@@ -48,15 +48,13 @@
   </main>
 
 
-  <footer class="foot navbar bg-body-secondary justify-content-center fixed-bottom border-1 border-top border-dark">
+  <footer class="bg-gray-300 p-5 text-center drop-shadow text-sm font-RobotoBold text-green-700">
     <div >
       <p>Mercadona - copyright 2023</p>
     </div>
   </footer>
 
 
-
-  <script src="{{url_for('static', filename='scripts/bootstrap.js')}}"></script>
   <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
   <script src="{{url_for('static', filename='scripts/catalogue.js')}}"></script>
 </body>
