@@ -1,30 +1,30 @@
 
 <a href="{{ url_for('catalogue.catalogue') }}"
-   class="btn btn-success retour-catalogue">
+   class="">
     Retour au Catalogue
 </a>
 
-<div class="container elem elem2 border-2 rounded-4 p-2 m-2" id="product-display">
-    <div class="row">
+<div class="" id="product-display">
+    <div class="">
         {% for product in products %}
-            <div class="col-md-3">
-                <div class="card ">
-                    <h5 class="card-title text-center border border-2 border-black rounded-2 m-0">{{ product.name }}</h5>
-                    <img src="data:image;base64,{{ product.image_data }}" class="card-img-top" alt="Image 1">
-                    <div class="card-body">
-                        <p class="card-text">{{ product.category_name }}</p>
-                        <p class="card-text">{{ product.description }}</p>
+            <div class="">
+                <div class="">
+                    <h5 class="">{{ product.name }}</h5>
+                    <img src="data:image;base64,{{ product.image_data }}" class="" alt="Image 1">
+                    <div class="">
+                        <p class="">{{ product.category_name }}</p>
+                        <p class="">{{ product.description }}</p>
                     {% if product.promo_start != product.promo_end %}
                         {% if product.promo_end > today %}
                             <p style="color:red">PROMO</p>
-                            <p class="card-text">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
-                            <p class="card-text"><span class="old-price">{{ product.price }}</span>
-                                Nouveau prix: <span class="new-price">{{ product.new_price| round(2) | float }}€</span></p>
+                            <p class="">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
+                            <p class=""><span class="">{{ product.price }}</span>
+                                Nouveau prix: <span class="">{{ product.new_price| round(2) | float }}€</span></p>
                         {% else %}
-                            <p class="card-text">Prix: {{ product.price }}€</p>
+                            <p class="">Prix: {{ product.price }}€</p>
                         {% endif %}
                     {% else %}
-                            <p class="card-text">Prix: {{ product.price }}€</p>
+                            <p class="">Prix: {{ product.price }}€</p>
                     {% endif %}
                     </div>
                 </div>

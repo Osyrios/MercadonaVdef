@@ -18,38 +18,38 @@
 {% block content %}
 
     <a href="{{ url_for('back_office.back_office') }}"
-       class="btn btn-success retour-bo">
+       class="">
         Retour au back-office
     </a>
 
-    <div class="container-fluid m-5 p-4 d-flex flex-column align-items-center">
-        <div class="bo-elem1 border border-2 border-success rounded-4 mb-5">
-            <form class="bo-fs-label" method="POST" action="{{url_for('categoryWs.create_category')}}">
-                <div class="form-group pb-3 px-3 text-center">
-                    <label for="libelle" class="bo-fs-label fw-bold m-3">Nom de la nouvelle catégorie a créer</label>
+    <div class="">
+        <div class="">
+            <form class="" method="POST" action="{{url_for('categoryWs.create_category')}}">
+                <div class="">
+                    <label for="libelle" class="">Nom de la nouvelle catégorie a créer</label>
 
                     {% if added_category %}
-                        <p class="text-center text-success">Catégorie ajoutée avec succès</p>
+                        <p class="">Catégorie ajoutée avec succès</p>
                     {% else %}
                     {% endif %}
-                    <input type="text" class="form-control" name ="libelle" id="libelle">
+                    <input type="text" class="" name ="libelle" id="libelle">
                 </div>
-                <div class="d-flex justify-content-center">
-                    <input type="submit" class="btn btn-success text-center m-2">
+                <div class="">
+                    <input type="submit" class="">
                 </div>
             </form>
         </div>
 
 
-        <div class="bo-elem2 border border-2 border-success rounded-4 overflow-scroll" >
-            <div class="text-center m-3" >
-                <p class="bo-fs-label fw-bold">Catégories déjà présentes et disponibles</p>
+        <div class="" >
+            <div class="" >
+                <p class="">Catégories déjà présentes et disponibles</p>
             </div>
 
-            <div class="m-3">
-                <ul class="m-3">
+            <div class="">
+                <ul class="">
                     {% for categorie in categories %}
-                        <li class="m-1">{{ categorie }}</li>
+                        <li class="">{{ categorie }}</li>
                     {% endfor %}
                 </ul>
             </div>

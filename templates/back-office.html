@@ -19,135 +19,135 @@
 {# Ajout du content propre à la page #}
 {% block content %}
 
-<div class="logout">
+<div class="">
     <form action="{{ url_for('logout.logout') }}" method="POST">
-        <button type="submit" class="btn btn-warning">Se déconnecter</button>
+        <button type="submit" class="">Se déconnecter</button>
     </form>
 </div>
 
 
-<div class="create-user">
+<div class="">
     <form action="{{ url_for('new_admin.new_admin') }}" method="GET">
-        <button type="submit" class="btn btn-light">Créer Utilisateur</button>
+        <button type="submit" class="">Créer Utilisateur</button>
     </form>
 </div>
 
-<div class="container-fluid mb-5 d-flex pb-2 justify-content-evenly">
+<div class="">
     {# Zone d'ajout de nouveau produits #}
-    <div class="bo-elem1 border border-2 border-success rounded-4 m-2 overflow-scroll">
-        <p class="bo-fs-p text-center fw-bold pt-4">Ajouter un nouveau produit</p>
+    <div class="">
+        <p class="">Ajouter un nouveau produit</p>
         {# Affiche un message de succès si l'ajout du produit est une réussite #}
         {% if add_product_success %}
-            <p class="text-success text-center">Produit ajouté avec succès<br>
+            <p class="">Produit ajouté avec succès<br>
                 Vous pouvez proceder a un nouvel enregistrement</p>
         {% else %}
         {% endif %}
 
         {# Affiche un message en cas d'erreur sur l'image ajouté ou l'absence d'image #}
         {% if error_image %}
-            <p class="text-danger text-center">Merci d'ajouter une image valable</p>
+            <p class="">Merci d'ajouter une image valable</p>
         {% else %}
         {% endif %}
 
         {# Affiche un message en cas d'erreur lors de l'ajout du nouveau produit #}
         {% if error_add_product %}
-            <p class="text-danger text-center">Echec de l'ajout du produit, merci de verifier les informations remplies</p>
+            <p class="">Echec de l'ajout du produit, merci de verifier les informations remplies</p>
         {% else %}
         {% endif %}
 
-        <form class="bo-fs-label" method="POST" action="{{url_for('ProductWS.create_product')}}"
+        <form class="" method="POST" action="{{url_for('ProductWS.create_product')}}"
               enctype="multipart/form-data" id="new-product-form">
-            <div class="form-group pb-3 px-3">
+            <div class="">
                 <label for="name">Nom de l'article</label>
-                <input type="text" class="form-control" name ="name" id="name">
+                <input type="text" class="" name ="name" id="name">
             </div>
 
-            <div class="form-group pb-3 px-3">
-                <select class="form-select" aria-label="category_name" name ="category_name" id="category_name">
+            <div class="">
+                <select class="" aria-label="category_name" name ="category_name" id="category_name">
                     <option selected>Choisir une catégorie</option>
                         {% for categorie in categories %}
                             <option value="{{ categorie }}"> {{ categorie }}</option>
                         {% endfor %}
                 </select>
-                <a href="{{ url_for('new_category.new_category') }}"class="btn btn-success btn-sm text-center mb-2">
+                <a href="{{ url_for('new_category.new_category') }}" class="">
                     Nouvelle catégorie
                 </a>
 
             </div>
 
-            <div class="form-group pt-3 px-3">
+            <div class="">
                 <label for="description">Description (max 150)</label>
-                <textarea class="form-control" id="description" name="description" cols="30" rows="5"></textarea>
+                <textarea class="" id="description" name="description" cols="30" rows="5"></textarea>
             </div>
-            <div class="form-group pt-3 px-3">
+            <div class="">
                 <label for="image_data">Image</label>
-                <input type="file" accept=".png, .jpg" id="image_data" class="form-control" name="image_data" formenctype="multipart/form-data">
+                <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data" formenctype="multipart/form-data">
             </div>
-            <div class="form-group p-3">
+            <div class="">
                 <label for="price">Prix</label>
-                <input type="number" min="0" step="0.01" class="form-control" id="price" name="price">
+                <input type="number" min="0" step="0.01" class="" id="price" name="price">
             </div>
-            <div class="form-group p-3">
+            <div class="">
                 <label for="promo_start">Début promotion</label>
-                <input type="date" class="form-control" id="promo_start" name="promo_start">
+                <input type="date" class="" id="promo_start" name="promo_start">
             </div>
-            <div class="form-group p-3">
+            <div class="">
                 <label for="promo_end">Fin promotion</label>
-                <input type="date" class="form-control" id="promo_end" name="promo_end">
+                <input type="date" class="" id="promo_end" name="promo_end">
             </div>
-            <div class="form-group p-3">
+            <div class="">
                 <label for="promo_amount">Montant promotion (%)</label>
-                <input type="number" min="0" max="100" class="form-control" id="promo_amount" name="promo_amount">
+                <input type="number" min="0" max="100" class="" id="promo_amount" name="promo_amount">
             </div>
-            <div class="d-flex justify-content-center">
-                <input type="submit" value="Ajouter" class="btn btn-success text-center mb-2">
+            <div class="">
+                <input type="submit" value="Ajouter" class="">
             </div>
         </form>
     </div>
 
     {# Zone modification de produit #}
-    <div class="bo-elem2 border border-2 border-success rounded-4 m-2 overflow-scroll">
+    <div class="">
 
-    <p class="bo-fs-p text-center fw-bold pt-4">Modifier un produit</p>
+    <p class="">Modifier un produit</p>
 
     {# Affiche un message en cas d'erreur lors de la modification du produit #}
     {% if error_modify_product %}
-        <p class="text-danger text-center">Echec de la mise a jour du produit <br>
+        <p class="">Echec de la mise a jour du produit <br>
             Aucunes modifications n'as été effectuées</p>
     {% else %}
     {% endif %}
 
     {# Affiche un message en cas d'erreur lors de la suppression du produit #}
     {% if product_deleted %}
-        <p class="text-success text-center">Produit supprimé avec succès</p>
+        <p class="">Produit supprimé avec succès</p>
     {% else %}
     {% endif %}
 
         {# endroit ou les Articles apparaissent #}
-        <div class="container elem p-2 m-2">
-            <div class="row">
+        <div class="">
+            <div class="">
                 {% for product in products %}
-                    <div class="col-md-2 container-fluid">
-                    <div class="card">
-                    <h5 class="card-title text-center border border-2 border-black m-0 rounded-2">{{ product.name }}</h5>
-                    <img src="data:image;base64,{{ product.image_data }}" class="card-img-top" alt="Image Article">
-                    <div class="card-body container-fluid overflow-scroll ">
-                    <p class="card-text">{{ product.category_name }}</p>
-                    <p class="card-text">{{ product.description }}</p>
+                    <div class="">
+                    <div class="">
+                    <h5 class="">{{ product.name }}</h5>
+                    <img src="data:image;base64,{{ product.image_data }}" class="" alt="Image Article">
+                    <div class="">
+                    <p class="">{{ product.category_name }}</p>
+                    <p class="">{{ product.description }}</p>
                     {% if product.promo_start != product.promo_end %}
                         {% if product.promo_end > today %}
                             <p style="color:red">PROMO</p>
-                            <p class="card-text">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
-                            <p class="card-text"><span class="old-price">{{ product.price }}</span>
-                            Nouveau prix: <span class="new-price">{{ product.new_price| round(2) | float }}€</span></p>
+                            <p class="">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
+                            <p class=""><span class="">{{ product.price }}</span>
+                            Nouveau prix: <span class="">{{ product.new_price| round(2) | float }}€</span></p>
                         {% else %}
-                            <p class="card-text">Prix: {{ product.price }}€</p>
+                            <p class="">Prix: {{ product.price }}€</p>
                         {% endif %}
                     {% else %}
-                        <p class="card-text">Prix: {{ product.price }}€</p>
+                        <p class="">Prix: {{ product.price }}€</p>
                     {% endif %}
 
-                        <a class="btn btn-danger modif" href="{{ url_for('product_update.product_update', product_id=product.id_product) }}">
+                        <a class="" href="{{ url_for('product_update.product_update', product_id=product.id_product) }}">
                         Modif/Suppr</a>
                     </div>
                     </div>
