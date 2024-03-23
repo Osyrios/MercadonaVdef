@@ -19,36 +19,36 @@
 
 {# Ajout du content propre à la page #}
 {% block content %}
-<div class="container-fluid boxform">
-  <div class="container-fluid connexionform">
+<div class="flex flex-col bg-gray-100 py-20 items-center">
 
-    <form action="{{url_for('login.traitement')}}" method="POST">
+    <form action="{{url_for('login.traitement')}}" method="POST" class="flex flex-col bg-gradient-to-tr from-green-700 to-gray-300 pt-20 px-16 rounded-3xl shadow-2xl">
 
-      <p class="mb-3">
-        <label for="id" class="form-label">Identifiant</label>
-        <input type="text" class="form-control" name="id" id="id">
+
+
+      <p class="flex flex-col items-center mb-8 md:mb-16">
+        <label for="id" class="">Identifiant</label>
+        <input type="text" class="rounded-lg mt-3" name="id" id="id">
       </p>
 
-      <p class="mb-3">
-        <label for="mdp" class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" name="mdp" id="mdp">
+      <p class="flex flex-col items-center mb-5 md:mb-10">
+        <label for="mdp" class="">Mot de passe</label>
+        <input type="password" class="rounded-lg mt-3" name="mdp" id="mdp">
       </p>
 
-      <p style="display: flex; justify-content:center;">
-        <input type="submit" value="Connexion" class="btn btn-success">
-      </p>
-
-  {# CONDITION SI LA CONNEXION A ECHOUEE LE MESSAGE SE RAJOUTE #}
+        {# CONDITION SI LA CONNEXION A ECHOUEE LE MESSAGE SE RAJOUTE #}
     {%if connexion==False %}
-      <p class="text-danger">
+      <p class="text-red-600 font-RobotoBold text-wrap">
         Identifiant ou mot de passe incorrect
       </p>
     {% else %}
     {% endif %}
+
+      <p class="text-center mt-16 mb-8 bg-gray-300 rounded-3xl py-2 font-RobotoBold text-green-700 hover:scale-110 hover:cursor-pointer shadow-2xl">
+        <input type="submit" value="Connexion" class="hover:cursor-pointer">
+      </p>
+
     </form>
 
-
-  </div>
 </div>
 
 {% endblock content%}
