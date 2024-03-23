@@ -19,26 +19,27 @@
 
 {# Ajout du content propre à la page #}
 {% block content %}
-    <div class="px-12 py-5 bg-white">
-      <h1 class="text-center font-RobotoItalic text-xl my-8 text-green-700">Bienvenue</h1>
+    <div class="px-12 py-5 bg-white sm:px-20 md:px-12 md:flex md:flex-col md:items-center">
+        <div class="md:w-2/3 xl:w-1/2">
+          <h1 class="text-center font-RobotoItalic text-xl my-8 text-green-700">Bienvenue</h1>
 
-        <div class="flex flex-col gap-y-6">
-            <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Bonjour, vous vous trouvez sur le nouveau site de votre enseigne préférée !</p>
-            <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Comme vous le savez, l'écologie est une priorité chez Mercadona.<br>
-              En ce sens, nous avons décidé de mettre fin aux prospectus papiers.
-            </p>
-            <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Vous trouverez désormais tous nos articles disponible ainsi que les promotions
-              en cours dans l'onglet "Catalogue"</p>
-            <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">
-              Nous vous souhaitons une agréable visite et esperons que vous trouverez votre bonheurs
-              parmis nos articles
-            </p>
+            <div class="flex flex-col gap-y-6">
+                <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Bonjour, vous vous trouvez sur le nouveau site de votre enseigne préférée !</p>
+                <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Comme vous le savez, l'écologie est une priorité chez Mercadona.<br>
+                  En ce sens, nous avons décidé de mettre fin aux prospectus papiers.
+                </p>
+                <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">Vous trouverez désormais tous nos articles disponible ainsi que les promotions
+                  en cours dans l'onglet "Catalogue"</p>
+                <p class="first-letter:text-green-700 first-letter:text-lg first-letter:font-RobotoItalic">
+                  Nous vous souhaitons une agréable visite et esperons que vous trouverez votre bonheurs
+                  parmis nos articles
+                </p>
+            </div>
+
+            <div class="text-end my-8 font-RobotoItalic text-green-700">
+              <p>L'équipe Mercadona</p>
+            </div>
         </div>
-
-        <div class="text-end my-8 font-RobotoItalic text-green-700">
-          <p>L'équipe Mercadona</p>
-        </div>
-
     </div>
 
 
