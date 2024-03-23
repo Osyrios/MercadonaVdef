@@ -12,26 +12,26 @@
   {% endblock %}
 </head>
 
-<body>
+<body class="bg-gray-300 font-RobotoRegular">
   <header>
     <nav class="flex flex-col items-center bg-gray-300 drop-shadow">
-      <div class="p-2 my-3">
-        <p class="font-RobotoBold text-green-700">MERCADONA</p>
+      <div class="p-2 my-3 font-RobotoBold text-green-700 md:my-8 md:text-2xl">
+        <p>MERCADONA</p>
       </div>
-      <div class="w-full flex flex-row justify-evenly gap-3 mb-3 text-green-700">
-          <div class="">
-            <a href="{{url_for('homepage.homepage')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">Accueil</a>
+      <div class="w-full flex flex-row justify-evenly gap-3 mb-3 text-green-700 font md:justify-center md:gap-x-16 md:text-xl">
+          <div class="font-RobotoRegular p-2 rounded-xl underline hover:bg-green-600 hover:text-gray-300 md:p-3">
+            <a href="{{url_for('homepage.homepage')}}">Accueil</a>
           </div>
-          <div class="">
-            <a href="{{url_for('catalogue.catalogue')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">Catalogue</a>
+          <div class="font-RobotoRegular p-2 rounded-xl underline hover:bg-green-600 hover:text-gray-300 md:p-3">
+            <a href="{{url_for('catalogue.catalogue')}}">Catalogue</a>
           </div>
-          <div class="">
+          <div class="font-RobotoRegular p-2 rounded-xl underline hover:bg-green-600 hover:text-gray-300 md:p-3">
                 {% if session.get('user') == 'admin' %}
-                    <a href="{{url_for('back_office.back_office')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">
+                    <a href="{{url_for('back_office.back_office')}}">
                     Back Office(connecté)
                     </a>
                 {% else %}
-                    <a href="{{url_for('login.login')}}" class="hover:underline hover:font-RobotoBold hover:text-lg">
+                    <a href="{{url_for('login.login')}}">
                     Admin
                     </a>
                 {% endif %}
@@ -48,9 +48,16 @@
   </main>
 
 
-  <footer class="bg-gray-300 p-5 text-center drop-shadow text-sm font-RobotoBold text-green-700">
-    <div >
-      <p>Mercadona - copyright 2023</p>
+  <footer class="bg-gray-300 pt-5 text-center text-sm font-RobotoItalic drop-shadow">
+    <div>
+      <p class="font-RobotoBold text-green-700 text-base pb-3 before:content-['***'] after:content-['***']">Mercadona</p>
+      <p class="text-black pt-3">Négoce Yassine | copyright 2023</p>
+      <p class="pb-3">Site réalisé par
+          <a href="https://negoce-dev.com"
+             target="_blank"
+             title="site de Yassine Négoce"
+             class="font-RobotoBold underline text-green-700">negoce-dev.com</a>
+      </p>
     </div>
   </footer>
 
