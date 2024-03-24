@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'RobotoBold':['robotoBold'],
-        'RobotoItalic':['robotoItalic'],
-        'RobotoRegular':['robotoRegular']
+        'RobotoBold':['robotoBold','ui-sans-serif'],
+        'RobotoItalic':['robotoItalic','ui-sans-serif'],
+        'RobotoRegular':['robotoRegular','ui-sans-serif'],
+        'Saiba':['saibaRegular', 'ui-sans-serif'],
+        'SaibaOutline':['saibaOutlineRegular','ui-sans-serif']
       }
     },
   },

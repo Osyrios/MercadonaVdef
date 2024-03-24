@@ -25,3 +25,19 @@
         font-weight: normal;
         font-style: normal;
     }
+
+@font-face {
+        font-family: 'saibaRegular';
+        src: url('../fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff2') format('woff2'),
+            url('../fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+@font-face {
+        font-family: 'saibaOutlineRegular';
+        src: url('../fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff2') format('woff2'),
+            url('../fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
