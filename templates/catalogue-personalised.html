@@ -1,34 +1,43 @@
 
-<a href="{{ url_for('catalogue.catalogue') }}"
-   class="">
-    Retour au Catalogue
-</a>
-
-<div class="" id="product-display">
-    <div class="">
-        {% for product in products %}
-            <div class="">
-                <div class="">
-                    <h5 class="">{{ product.name }}</h5>
-                    <img src="data:image;base64,{{ product.image_data }}" class="" alt="Image 1">
-                    <div class="">
-                        <p class="">{{ product.category_name }}</p>
-                        <p class="">{{ product.description }}</p>
-                    {% if product.promo_start != product.promo_end %}
-                        {% if product.promo_end > today %}
-                            <p style="color:red">PROMO</p>
-                            <p class="">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
-                            <p class=""><span class="">{{ product.price }}</span>
-                                Nouveau prix: <span class="">{{ product.new_price| round(2) | float }}€</span></p>
-                        {% else %}
-                            <p class="">Prix: {{ product.price }}€</p>
-                        {% endif %}
-                    {% else %}
-                            <p class="">Prix: {{ product.price }}€</p>
-                    {% endif %}
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
+<div class="flex flex-col items-center w-full">
+    <div class="my-3">
+        <a href="{{ url_for('catalogue.catalogue') }}"
+           class=" text-center p-2 rounded-3xl bg-yellow-500 hover:underline hover:bg-green-600">
+            Réinitialiser les filtres
+        </a>
     </div>
+
+     <div class="flex flex-col items-center text-sm md:flex-row md:flex-wrap md:gap-x-16 md:justify-center w-full"
+         id="product-display">
+                {% for product in products %}
+                        <div class="flex flex-col items-center shadow-md hover:shadow-lg shadow-green-600 hover:scale-110 hover:shadow-blue-700 transition rounded-2xl w-1/2 my-8 md:w-1/4 xl:w-1/5">
+                            <div class="text-center p-2 my-2 text-base">
+                                <h5 class="font-Saiba">{{ product.name }}</h5>
+                            </div>
+
+                            <div class="overflow-hidden w-44 h-44 md:w-auto">
+                                <img src="data:image;base64,{{ product.image_data }}" class="object-contain w-full h-full" alt="Image 1">
+                            </div>
+
+                            <div class="m-5">
+                                    <p class="text-center font-RobotoItalic">{{ product.category_name }}</p>
+                                    <p class="py-3">{{ product.description }}</p>
+                                {% if product.promo_start != product.promo_end %}
+                                    {% if product.promo_end > today %}
+                                        <p class="text-red-600">PROMO</p>
+                                        <p>{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
+                                        <p class="text-red-600 text-base"><span class="old-price text-black">{{ product.price }}</span>
+                                            Nouveau prix: <span class="font-RobotoBold text-red-600">{{ product.new_price| round(2) | float }}€</span></p>
+                                    {% else %}
+                                        <p class="font-RobotoBold text-base">Prix: {{ product.price }}€</p>
+                                    {% endif %}
+                                {% else %}
+                                        <p class="font-RobotoBold text-base">Prix: {{ product.price }}€</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                {% endfor %}
+        </div>
+
 </div>
+

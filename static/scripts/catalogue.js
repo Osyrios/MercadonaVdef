@@ -10,7 +10,7 @@ let newPrice = document.querySelectorAll(".new-price")
 
 newPrice.forEach(function(j){
     j.style.fontStyle="bold";
-    j.style.color="Red";
+    j.style.color="rgb(220 38 38)";
     j.style.fontWeight="bold";
 })
 
