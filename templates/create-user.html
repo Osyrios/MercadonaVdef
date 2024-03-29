@@ -16,27 +16,33 @@
 
 {# Ajout du content propre à la page #}
 {% block content %}
-<a href="{{ url_for('back_office.back_office') }}"
-       class="">
-        Retour au back-office
-</a>
+<div class="flex flex-col items-center">
 
-<form class="flex flex-col m-5 p-5 items-center gap-y-2"
-      method="POST"
-      action="{{url_for('admin_ws.create_user')}}">
-    <div class="">
-        <label for="identifiant" class="">Identifiant : </label>
-        <input type="text" class="bg-gray-300 border border-green-700 rounded-lg" name ="identifiant" id="identifiant">
+    <div class="text-center my-10">
+        <a href="{{ url_for('back_office.back_office') }}" class="p-3 rounded-3xl bg-yellow-500 hover:underline hover:bg-green-600">
+                Retour au back-office
+        </a>
     </div>
-    <div class="">
-        <label for="password" class="">Mot de passe : </label>
-        <input type="password" class="bg-gray-300 border border-green-700 rounded-lg" name ="password" id="password">
-    </div>
-    <div class="text-center p-2 rounded-lg bg-violet-600 hover:cursor-pointer mt-5">
-        <input type="submit" class="font-Saiba text-green-700 hover:cursor-pointer" value="Créer">
-    </div>
-</form>
 
+    <form class="flex flex-col m-5 p-5 items-center gap-y-2 border border-violet-600 w-11/12 rounded-3xl sm:w-8/12 lg:w-6/12"
+          method="POST"
+          action="{{url_for('admin_ws.create_user')}}">
+        <div class="uppercase mb-2 font-Saiba text-violet-600 lg:my-12 lg:text-2xl">
+            <h2>Création d&apos;un utilisateur</h2>
+        </div>
+        <div class="">
+            <label for="identifiant" class="">Identifiant : </label>
+            <input type="text" class="bg-gray-300 border border-green-700 rounded-lg" name ="identifiant" id="identifiant">
+        </div>
+        <div class="">
+            <label for="password" class="">Mot de passe : </label>
+            <input type="password" class="bg-gray-300 border border-green-700 rounded-lg" name ="password" id="password">
+        </div>
+        <div class="text-center p-2 rounded-lg bg-violet-600 hover:cursor-pointer mt-5 hover:scale-110 lg:my-10">
+            <input type="submit" class="font-Saiba text-white hover:cursor-pointer " value="Créer">
+        </div>
+    </form>
+</div>
 
 
 {% endblock %}
