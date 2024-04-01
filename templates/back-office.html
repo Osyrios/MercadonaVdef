@@ -34,73 +34,72 @@
 
 <div class="">
     {# Zone d'ajout de nouveau produits #}
-    <div class="">
-        <p class="">Ajouter un nouveau produit</p>
+    <div class="border border-green-700 rounded-lg shadow-xl m-5 p-5 text-sm font-RobotoRegular">
+        <p class="text-center font-RobotoBold uppercase mb-5">Ajouter un nouveau produit</p>
         {# Affiche un message de succès si l'ajout du produit est une réussite #}
         {% if add_product_success %}
-            <p class="">Produit ajouté avec succès<br>
+            <p class="text-center text-green-600 font-RobotoBold">Produit ajouté avec succès<br>
                 Vous pouvez proceder a un nouvel enregistrement</p>
         {% else %}
         {% endif %}
 
         {# Affiche un message en cas d'erreur sur l'image ajouté ou l'absence d'image #}
         {% if error_image %}
-            <p class="">Merci d'ajouter une image valable</p>
+            <p class="text-center font-RobotoBold text-red-600">Merci d'ajouter une image valable</p>
         {% else %}
         {% endif %}
 
         {# Affiche un message en cas d'erreur lors de l'ajout du nouveau produit #}
         {% if error_add_product %}
-            <p class="">Echec de l'ajout du produit, merci de verifier les informations remplies</p>
+            <p class="text-center font-RobotoBold text-red-600">Echec de l'ajout du produit, merci de verifier les informations remplies</p>
         {% else %}
         {% endif %}
 
-        <form class="" method="POST" action="{{url_for('ProductWS.create_product')}}"
+        <form class="mt-3 flex flex-col gap-y-5" method="POST" action="{{url_for('ProductWS.create_product')}}"
               enctype="multipart/form-data" id="new-product-form">
-            <div class="">
-                <label for="name">Nom de l'article</label>
-                <input type="text" class="" name ="name" id="name">
+            <div>
+                <label class="font-RobotoItalic me-3" for="name">Nom de l'article</label>
+                <input type="text" class="rounded-lg p-1 text-green-700 font-RobotoBold uppercase" name ="name" id="name">
             </div>
 
-            <div class="">
-                <select class="" aria-label="category_name" name ="category_name" id="category_name">
+            <div>
+                <select class="form-select rounded-2xl p-2 text-white bg-green-600 font-RobotoItalic" aria-label="category_name" name ="category_name" id="category_name">
                     <option selected>Choisir une catégorie</option>
                         {% for categorie in categories %}
                             <option value="{{ categorie }}"> {{ categorie }}</option>
                         {% endfor %}
                 </select>
-                <a href="{{ url_for('new_category.new_category') }}" class="">
+                <a href="{{ url_for('new_category.new_category') }}" class="ms-1 p-2 rounded-lg bg-teal-500 drop-shadow-xl hover:bg-green-600">
                     Nouvelle catégorie
                 </a>
-
             </div>
 
-            <div class="">
-                <label for="description">Description (max 150)</label>
-                <textarea class="" id="description" name="description" cols="30" rows="5"></textarea>
+            <div class="text-center">
+                <label for="description" class="font-RobotoItalic">Description (max 150)</label>
+                <textarea class="rounded-lg text-green-700 p-2" id="description" name="description" cols="30" rows="5"></textarea>
             </div>
-            <div class="">
-                <label for="image_data">Image</label>
+            <div class="flex flex-col items-center">
+                <label for="image_data" class="font-RobotoItalic">Image</label>
                 <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data" formenctype="multipart/form-data">
             </div>
-            <div class="">
-                <label for="price">Prix</label>
-                <input type="number" min="0" step="0.01" class="" id="price" name="price">
+            <div>
+                <label for="price" class="font-RobotoItalic me-4">Prix</label>
+                <input type="number" min="0" step="0.01" class="rounded-lg p-2 text-center text-green-700" id="price" name="price">
             </div>
-            <div class="">
-                <label for="promo_start">Début promotion</label>
-                <input type="date" class="" id="promo_start" name="promo_start">
+            <div>
+                <label for="promo_start" class="me-3 font-RobotoItalic">Début promotion</label>
+                <input type="date" class="rounded-lg p-1.5 text-green-700" id="promo_start" name="promo_start">
             </div>
-            <div class="">
-                <label for="promo_end">Fin promotion</label>
-                <input type="date" class="" id="promo_end" name="promo_end">
+            <div>
+                <label for="promo_end" class="me-3 font-RobotoItalic">Fin promotion</label>
+                <input type="date" class="rounded-lg p-1.5 text-green-700" id="promo_end" name="promo_end">
             </div>
-            <div class="">
-                <label for="promo_amount">Montant promotion (%)</label>
-                <input type="number" min="0" max="100" class="" id="promo_amount" name="promo_amount">
+            <div>
+                <label for="promo_amount" class="font-RobotoItalic">Montant promotion (%)</label>
+                <input type="number" min="0" max="100" class="w-16 text-center p-1.5 rounded-lg text-green-700" id="promo_amount" name="promo_amount">
             </div>
-            <div class="">
-                <input type="submit" value="Ajouter" class="">
+            <div class="text-center">
+                <input type="submit" value="Ajouter" class="font-Saiba text-white rounded-lg bg-green-600 p-2 hover:cursor-pointer hover:scale-110 hover:underline drop-shadow-lg">
             </div>
         </form>
     </div>
