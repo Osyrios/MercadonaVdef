@@ -105,17 +105,10 @@
     </div>
 
 
-
-
-
-
-
-
-
     {# Zone modification de produit #}
-    <div class="">
+    <div class="border border-green-700 rounded-lg shadow-xl m-5  text-sm font-RobotoRegular">
 
-    <p class="">Modifier un produit</p>
+    <p class="text-center font-RobotoBold uppercase mb-5">Modifier un produit</p>
 
     {# Affiche un message en cas d'erreur lors de la modification du produit #}
     {% if error_modify_product %}
@@ -131,40 +124,48 @@
     {% endif %}
 
         {# endroit ou les Articles apparaissent #}
-        <div class="">
-            <div class="">
+        <div class="flex flex-col items-center text-sm md:flex-row md:flex-wrap md:gap-x-16 md:justify-center"
+         id="product-display">
                 {% for product in products %}
-                    <div class="">
-                    <div class="">
-                    <h5 class="">{{ product.name }}</h5>
-                    <img src="data:image;base64,{{ product.image_data }}" class="" alt="Image Article">
-                    <div class="">
-                    <p class="">{{ product.category_name }}</p>
-                    <p class="">{{ product.description }}</p>
-                    {% if product.promo_start != product.promo_end %}
-                        {% if product.promo_end > today %}
-                            <p style="color:red">PROMO</p>
-                            <p class="">{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
-                            <p class=""><span class="">{{ product.price }}</span>
-                            Nouveau prix: <span class="">{{ product.new_price| round(2) | float }}€</span></p>
-                        {% else %}
-                            <p class="">Prix: {{ product.price }}€</p>
-                        {% endif %}
-                    {% else %}
-                        <p class="">Prix: {{ product.price }}€</p>
-                    {% endif %}
+                        <div class="flex flex-col items-center shadow-md hover:shadow-lg shadow-green-600 hover:scale-110 hover:shadow-blue-700 transition rounded-2xl my-8 w-1/2 md:w-1/4 xl:w-1/5">
+                            <div class="text-center p-2 my-2 text-base">
+                                <h5 class="font-Saiba">{{ product.name }}</h5>
+                            </div>
 
-                        <a class="" href="{{ url_for('product_update.product_update', product_id=product.id_product) }}">
-                        Modif/Suppr</a>
-                    </div>
-                    </div>
-                    </div>
+                            <div class="overflow-hidden w-44 h-44 md:w-auto">
+                                <img src="data:image;base64,{{ product.image_data }}" class="object-contain w-full h-full" alt="Image 1">
+                            </div>
+
+                            <div class="m-5">
+                                    <p class="text-center font-RobotoItalic">{{ product.category_name }}</p>
+                                    <p class="py-3">{{ product.description }}</p>
+                                {% if product.promo_start != product.promo_end %}
+                                    {% if product.promo_end > today %}
+                                        <p class="text-red-600">PROMO</p>
+                                        <p>{{ product.promo_amount }}% jusqu'au: {{ product.promo_end }}</p>
+                                        <p class="text-red-600 text-base"><span class="old-price text-black">{{ product.price }}</span>
+                                            Nouveau prix: <span class="font-RobotoBold text-red-600">{{ product.new_price| round(2) | float }}€</span></p>
+                                    {% else %}
+                                        <p class="font-RobotoBold text-base">Prix: {{ product.price }}€</p>
+                                    {% endif %}
+                                {% else %}
+                                        <p class="font-RobotoBold text-base">Prix: {{ product.price }}€</p>
+                                {% endif %}
+
+
+                            </div>
+
+                                <a class="p-2 my-2 rounded-lg bg-red-800 drop-shadow-xl text-white"
+                                   href="{{ url_for('product_update.product_update', product_id=product.id_product) }}">
+                                    Modif/Suppr</a>
+
+                        </div>
                 {% endfor %}
-            </div>
         </div>
+
     </div>
 </div>
-</div>
+
 
 <script src="{{url_for('static', filename="scripts/back_office.js")}}"></script>
 
