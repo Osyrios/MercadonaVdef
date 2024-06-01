@@ -32,10 +32,10 @@
 
 
 
-<div class="">
+<div class="flex flex-col text-center">
     {# Zone d'ajout de nouveau produits #}
-    <div class="border border-green-700 rounded-lg shadow-xl m-5 p-5 text-sm font-RobotoRegular">
-        <p class="text-center font-RobotoBold uppercase mb-5">Ajouter un nouveau produit</p>
+    <div class="border border-green-700 flex-col items-center rounded-lg shadow-xl m-5 p-5 text-sm font-RobotoRegular">
+        <p class="text-center font-RobotoBold uppercase mb-5 text-2xl xl:text-3xl">Ajouter un nouveau produit</p>
         {# Affiche un message de succès si l'ajout du produit est une réussite #}
         {% if add_product_success %}
             <p class="text-center text-green-600 font-RobotoBold">Produit ajouté avec succès<br>
@@ -55,7 +55,7 @@
         {% else %}
         {% endif %}
 
-        <form class="mt-3 flex flex-col gap-y-5" method="POST" action="{{url_for('ProductWS.create_product')}}"
+        <form class="mt-3 flex flex-col sm:justify-center gap-y-5" method="POST" action="{{url_for('ProductWS.create_product')}}"
               enctype="multipart/form-data" id="new-product-form">
             <div>
                 <label class="font-RobotoItalic me-3" for="name">Nom de l'article</label>
@@ -74,11 +74,11 @@
                 </a>
             </div>
 
-            <div class="text-center">
-                <label for="description" class="font-RobotoItalic">Description (max 150)</label>
+            <div class="flex items-center justify-center">
+                <label for="description" class="font-RobotoItalic">Description <br/> (max 150)</label>
                 <textarea class="rounded-lg text-green-700 p-2" id="description" name="description" cols="30" rows="5"></textarea>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex  justify-center">
                 <label for="image_data" class="font-RobotoItalic">Image</label>
                 <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data" formenctype="multipart/form-data">
             </div>
@@ -108,18 +108,18 @@
     {# Zone modification de produit #}
     <div class="border border-green-700 rounded-lg shadow-xl m-5  text-sm font-RobotoRegular">
 
-    <p class="text-center font-RobotoBold uppercase mb-5">Modifier un produit</p>
+    <p class="text-center font-RobotoBold uppercase mb-5 text-2xl xl:text-3xl">Modifier un produit</p>
 
     {# Affiche un message en cas d'erreur lors de la modification du produit #}
     {% if error_modify_product %}
-        <p class="">Echec de la mise a jour du produit <br>
+                <p class="text-center font-RobotoBold text-red-600">Echec de la mise a jour du produit <br>
             Aucunes modifications n'as été effectuées</p>
     {% else %}
     {% endif %}
 
     {# Affiche un message en cas d'erreur lors de la suppression du produit #}
     {% if product_deleted %}
-        <p class="">Produit supprimé avec succès</p>
+        <p class="text-center text-green-600 font-RobotoBold">Produit supprimé avec succès</p>
     {% else %}
     {% endif %}
 
