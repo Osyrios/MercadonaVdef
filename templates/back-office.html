@@ -35,7 +35,7 @@
 <div class="flex flex-col text-center">
     {# Zone d'ajout de nouveau produits #}
     <div class="border border-green-700 flex-col items-center rounded-lg shadow-xl m-5 p-5 text-sm font-RobotoRegular">
-        <p class="text-center font-RobotoBold uppercase mb-5 text-2xl xl:text-3xl">Ajouter un nouveau produit</p>
+        <p class="text-center font-RobotoBold uppercase mb-5 2xl:text-xl">Ajouter un nouveau produit</p>
         {# Affiche un message de succès si l'ajout du produit est une réussite #}
         {% if add_product_success %}
             <p class="text-center text-green-600 font-RobotoBold">Produit ajouté avec succès<br>
@@ -55,10 +55,10 @@
         {% else %}
         {% endif %}
 
-        <form class="mt-3 flex flex-col sm:justify-center gap-y-5" method="POST" action="{{url_for('ProductWS.create_product')}}"
+        <form class="mt-3 flex flex-col sm:items-center sm:justify-center xl:flex-row xl:flex-wrap xl:gap-x-5 gap-y-5" method="POST" action="{{url_for('ProductWS.create_product')}}"
               enctype="multipart/form-data" id="new-product-form">
-            <div>
-                <label class="font-RobotoItalic me-3" for="name">Nom de l'article</label>
+            <div class="flex xl:flex-col">
+                <label class="font-RobotoItalic me-3 font-bold" for="name">Nom de l'article</label>
                 <input type="text" class="rounded-lg p-1 text-green-700 font-RobotoBold uppercase" name ="name" id="name">
             </div>
 
@@ -73,29 +73,28 @@
                     Nouvelle catégorie
                 </a>
             </div>
-
-            <div class="flex items-center justify-center">
-                <label for="description" class="font-RobotoItalic">Description <br/> (max 150)</label>
-                <textarea class="rounded-lg text-green-700 p-2" id="description" name="description" cols="30" rows="5"></textarea>
-            </div>
-            <div class="flex  justify-center">
-                <label for="image_data" class="font-RobotoItalic">Image</label>
+            <div class="flex xl:flex-col justify-center">
+                <label for="image_data" class="font-RobotoItalic font-bold">Image</label>
                 <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data" formenctype="multipart/form-data">
             </div>
-            <div>
-                <label for="price" class="font-RobotoItalic me-4">Prix</label>
+            <div class="flex xl:flex-col">
+                <label for="price" class="font-RobotoItalic me-4 font-bold">Prix</label>
                 <input type="number" min="0" step="0.01" class="rounded-lg p-2 text-center text-green-700" id="price" name="price">
             </div>
-            <div>
-                <label for="promo_start" class="me-3 font-RobotoItalic">Début promotion</label>
+            <div class="flex items-center justify-center">
+                <label for="description" class="font-RobotoItalic me-4 font-bold">Description <br/> (max 150)</label>
+                <textarea class="rounded-lg text-green-700 p-2" id="description" name="description" cols="30" rows="5"></textarea>
+            </div>
+            <div class="flex xl:flex-col xl:items-center">
+                <label for="promo_start" class="me-3 font-RobotoItalic font-bold">Début promotion</label>
                 <input type="date" class="rounded-lg p-1.5 text-green-700" id="promo_start" name="promo_start">
             </div>
-            <div>
-                <label for="promo_end" class="me-3 font-RobotoItalic">Fin promotion</label>
+            <div class="flex xl:flex-col xl:items-center">
+                <label for="promo_end" class="me-3 font-RobotoItalic font-bold">Fin promotion</label>
                 <input type="date" class="rounded-lg p-1.5 text-green-700" id="promo_end" name="promo_end">
             </div>
-            <div>
-                <label for="promo_amount" class="font-RobotoItalic">Montant promotion (%)</label>
+            <div class="flex xl:flex-col xl:items-center">
+                <label for="promo_amount" class="font-RobotoItalic font-bold">Montant promotion (%)</label>
                 <input type="number" min="0" max="100" class="w-16 text-center p-1.5 rounded-lg text-green-700" id="promo_amount" name="promo_amount">
             </div>
             <div class="text-center">
@@ -108,7 +107,7 @@
     {# Zone modification de produit #}
     <div class="border border-green-700 rounded-lg shadow-xl m-5  text-sm font-RobotoRegular">
 
-    <p class="text-center font-RobotoBold uppercase mb-5 text-2xl xl:text-3xl">Modifier un produit</p>
+    <p class="text-center font-RobotoBold uppercase mb-5 pt-5 2xl:text-xl">Modifier un produit</p>
 
     {# Affiche un message en cas d'erreur lors de la modification du produit #}
     {% if error_modify_product %}
@@ -155,7 +154,7 @@
 
                             </div>
 
-                                <a class="p-2 my-2 rounded-lg bg-red-800 drop-shadow-xl text-white"
+                                <a class="p-2 my-2 rounded-lg bg-red-800 hover:bg-red-600 hover:scale-110 drop-shadow-xl text-white"
                                    href="{{ url_for('product_update.product_update', product_id=product.id_product) }}">
                                     Modif/Suppr</a>
 
