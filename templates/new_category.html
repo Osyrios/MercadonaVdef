@@ -17,14 +17,15 @@
 {# Ajout du content propre à la page #}
 {% block content %}
 
-    <a href="{{ url_for('back_office.back_office') }}"
-       class="">
-        Retour au back-office
-    </a>
+    <div class="text-center my-10">
+        <a href="{{ url_for('back_office.back_office') }}" class="p-3 rounded-3xl bg-yellow-500 hover:underline hover:bg-green-600">
+                Retour au back-office
+        </a>
+    </div>
 
     <div class="">
         <div class="">
-            <form class="" method="POST" action="{{url_for('categoryWs.create_category')}}">
+            <form class="flex flex-col items-center" method="POST" action="{{url_for('categoryWs.create_category')}}">
                 <div class="">
                     <label for="libelle" class="">Nom de la nouvelle catégorie a créer</label>
 
