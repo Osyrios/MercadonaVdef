@@ -19,10 +19,11 @@
 
 
 {% block content %}
-    <a href="{{ url_for('back_office.back_office') }}"
-       class="">
-        Retour au back-office
-    </a>
+    <div class="text-center my-10">
+        <a href="{{ url_for('back_office.back_office') }}" class="p-3 rounded-3xl bg-yellow-500 hover:underline hover:bg-green-600">
+                Retour au back-office
+        </a>
+    </div>
 
     <h1 class="">Modification ou suppression de l'article</h1>
 

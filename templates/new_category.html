@@ -26,31 +26,31 @@
     <div class="">
         <div class="">
             <form class="flex flex-col items-center" method="POST" action="{{url_for('categoryWs.create_category')}}">
-                <div class="">
-                    <label for="libelle" class="">Nom de la nouvelle catégorie a créer</label>
+                <div class="flex flex-col items-center">
+                    <label for="libelle" class="mb-2 font-bold">Nom de la nouvelle catégorie a créer</label>
 
                     {% if added_category %}
                         <p class="">Catégorie ajoutée avec succès</p>
                     {% else %}
                     {% endif %}
-                    <input type="text" class="" name ="libelle" id="libelle">
+                    <input type="text" class="rounded-2xl p-2" name ="libelle" id="libelle">
                 </div>
-                <div class="">
-                    <input type="submit" class="">
+                <div class="flex flex-col items-center p-3 m-3 rounded-3xl text-blue-400 underline bg-blue-950 ">
+                    <input type="submit" value="Créer" class="hover:cursor-pointer">
                 </div>
             </form>
         </div>
 
 
         <div class="" >
-            <div class="" >
+            <div class="text-center text-green-700 mt-5" >
                 <p class="">Catégories déjà présentes et disponibles</p>
             </div>
 
-            <div class="">
-                <ul class="">
+            <div class="flex flex-col items-center text-sm p-2 pb-10">
+                <ul class="border-2 border-black md:flex md:flex-row md:flex-wrap md:justify-evenly md:w-2/3 xl:w-1/2">
                     {% for categorie in categories %}
-                        <li class="">{{ categorie }}</li>
+                        <li class="p-1.5 border-b border-black md:border md:m-1">{{ categorie }}</li>
                     {% endfor %}
                 </ul>
             </div>
