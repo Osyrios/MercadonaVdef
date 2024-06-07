@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
 @font-face {
         font-family: 'robotoBold';
         src: url('/static/fonts/RobotoBold/roboto-bold-webfont.woff2') format('woff2'),
@@ -42,4 +41,3 @@
         font-weight: normal;
         font-style: normal;
     }
-}

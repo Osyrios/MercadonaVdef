@@ -7,6 +7,55 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+        font-family: 'robotoBold';
+        src: url('/static/fonts/RobotoBold/roboto-bold-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoBold/roboto-bold-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+@font-face {
+        font-family: 'robotoItalic';
+        src: url('/static/fonts/RobotoItalic/roboto-italic-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoItalic/roboto-italic-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+
+@font-face {
+        font-family: 'robotoRegular';
+        src: url('/static/fonts/RobotoRegular/roboto-regular-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoRegular/roboto-regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+@font-face {
+        font-family: 'saibaRegular';
+        src: url('/static/fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff2') format('woff2'),
+            url('/static/fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+@font-face {
+        font-family: 'saibaOutlineRegular';
+        src: url('/static/fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff2') format('woff2'),
+            url('/static/fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+
+
+
+
 *,
 ::before,
 ::after {
