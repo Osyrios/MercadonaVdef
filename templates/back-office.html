@@ -110,10 +110,11 @@
     <p class="text-center font-RobotoBold uppercase mb-5 pt-5 2xl:text-xl">Modifier un produit</p>
 
     {# Affiche un message en cas d'erreur lors de la modification du produit #}
-    {% if error_modify_product %}
+    {% if error_modify_product == true %}
                 <p class="text-center font-RobotoBold text-red-600">Echec de la mise a jour du produit <br>
             Aucunes modifications n'as été effectuées</p>
     {% else %}
+        <p class="text-center text-green-600 font-RobotoBold">Mise à jour effectuée avec succès</p>
     {% endif %}
 
     {# Affiche un message en cas d'erreur lors de la suppression du produit #}
