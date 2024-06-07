@@ -1138,8 +1138,8 @@ video {
 @font-face {
   font-family: 'robotoBold';
 
-  src: url('../fonts/RobotoBold/roboto-bold-webfont.woff2') format('woff2'),
-            url('../fonts/RobotoBold/roboto-bold-webfont.woff') format('woff');
+  src: url('/static/fonts/RobotoBold/roboto-bold-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoBold/roboto-bold-webfont.woff') format('woff');
 
   font-weight: bold;
 
@@ -1149,8 +1149,8 @@ video {
 @font-face {
   font-family: 'robotoItalic';
 
-  src: url('../fonts/RobotoItalic/roboto-italic-webfont.woff2') format('woff2'),
-            url('../fonts/RobotoItalic/roboto-italic-webfont.woff') format('woff');
+  src: url('/static/fonts/RobotoItalic/roboto-italic-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoItalic/roboto-italic-webfont.woff') format('woff');
 
   font-weight: normal;
 
@@ -1160,8 +1160,8 @@ video {
 @font-face {
   font-family: 'robotoRegular';
 
-  src: url('../fonts/RobotoRegular/roboto-regular-webfont.woff2') format('woff2'),
-            url('../fonts/RobotoRegular/roboto-regular-webfont.woff') format('woff');
+  src: url('/static/fonts/RobotoRegular/roboto-regular-webfont.woff2') format('woff2'),
+            url('/static/fonts/RobotoRegular/roboto-regular-webfont.woff') format('woff');
 
   font-weight: normal;
 
@@ -1171,8 +1171,8 @@ video {
 @font-face {
   font-family: 'saibaRegular';
 
-  src: url('../fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff2') format('woff2'),
-            url('../fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff') format('woff');
+  src: url('/static/fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff2') format('woff2'),
+            url('/static/fonts/saibaRegular/saiba-45-regular-v1.1-webfont.woff') format('woff');
 
   font-weight: normal;
 
@@ -1182,8 +1182,8 @@ video {
 @font-face {
   font-family: 'saibaOutlineRegular';
 
-  src: url('../fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff2') format('woff2'),
-            url('../fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff') format('woff');
+  src: url('/static/fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff2') format('woff2'),
+            url('/static/fonts/saibaOutlineRegular/saiba-45-outline-v1.1-webfont.woff') format('woff');
 
   font-weight: normal;
 
