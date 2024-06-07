@@ -29,76 +29,87 @@
 
     <div class="flex flex-col m-3 lg:flex-row lg:justify-evenly">
 
-        <div class="border-2 border-blue-600 rounded-xl p-2 lg:w-1/3">
+        <div class="border-2 border-blue-600 rounded-xl p-2 lg:w-1/3 xl:w-1/4 flex flex-col ">
             <p class="text-center font-RobotoItalic text-green-600 my-2"> Modifier les informations de l'article</p>
             <form class="flex flex-col items-center gap-y-2 text-sm" method="POST" action="{{url_for('ProductWS.modify_product', id_product=product_to_modify.id_product)}}" enctype="multipart/form-data">
                 <input hidden value="{{ product_to_modify.id_product }}" name="id_product">
 
-                    <label for="name">Nom</label>
-                    <input type="text" class="rounded-lg p-1 bg-gray-200 focus:bg-gray-50" name ="name" id="name" value="{{ product_to_modify.name }}">
+                <label for="name">Nom</label>
+                <input type="text" class="rounded-lg p-1 bg-gray-200 focus:bg-gray-50" name ="name" id="name" value="{{ product_to_modify.name }}">
 
-                    <label for="description">Description (max 150)</label>
-                    <textarea class="rounded-lg p-1 bg-gray-200 focus:bg-gray-50" id="description" name="description" cols="30" rows="3" >{{ product_to_modify.description }}</textarea>
+                <label for="description">Description (max 150)</label>
+                <textarea class="rounded-lg p-1 bg-gray-200 focus:bg-gray-50" id="description" name="description" cols="30" rows="3" >{{ product_to_modify.description }}</textarea>
 
-                    <label for="image_data">Image</label>
-                    <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data"
-                    formenctype="multipart/form-data" value="{{ product_to_modify.image_data }}">
+                <label for="image_data">Image</label>
+                <input type="file" accept=".png, .jpg" id="image_data" class="" name="image_data"
+                formenctype="multipart/form-data" value="{{ product_to_modify.image_data }}">
 
-                    <div class="lg:hidden flex flex-col items-center">
-                        <p class="text-center text-violet-600">image actuelle :</p>
-                        <img src="data:image;base64,{{ product_to_modify.image_data }}" class="w-1/3" alt="Image Article">
-                    </div>
+                <div class="lg:hidden flex flex-col items-center">
+                    <p class="text-center text-violet-600">image actuelle :</p>
+                    <img src="data:image;base64,{{ product_to_modify.image_data }}" class="w-1/3" alt="Image Article">
+                </div>
 
+                <label for="price">Prix</label>
+                <input type="number" min="0" step="0.01" class="text-center rounded-lg bg-gray-200 focus:bg-gray-50" id="price" name="price" value="{{ product_to_modify.price }}">
 
-                    <label for="price">Prix</label>
-                    <input type="number" min="0" step="0.01" class="text-center rounded-lg bg-gray-200 focus:bg-gray-50" id="price" name="price" value="{{ product_to_modify.price }}">
+                <label for="promo_start">Début promotion</label>
+                <input type="date" class=" rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_start" name="promo_start" value="{{ product_to_modify.promo_start }}">
 
-                    <label for="promo_start">Début promotion</label>
-                    <input type="date" class=" rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_start" name="promo_start" value="{{ product_to_modify.promo_start }}">
+                <label for="promo_end">Fin promotion</label>
+                <input type="date" class=" rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_end" name="promo_end" value="{{ product_to_modify.promo_end }}">
 
-                    <label for="promo_end">Fin promotion</label>
-                    <input type="date" class=" rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_end" name="promo_end" value="{{ product_to_modify.promo_end }}">
+                <label for="promo_amount">Montant promotion (%)</label>
+                <input type="number" min="0" max="100" class="text-center rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_amount" name="promo_amount" value="{{ product_to_modify.promo_amount }}">
 
-                    <label for="promo_amount">Montant promotion (%)</label>
-                    <input type="number" min="0" max="100" class="text-center rounded-lg bg-gray-200 focus:bg-gray-50" id="promo_amount" name="promo_amount" value="{{ product_to_modify.promo_amount }}">
-
-                    <div class="flex flex-row justify-center">
-                        <input type="submit" value="Mettre à jour" class="rounded-2xl p-3 m-3 bg-green-500 hover:cursor-pointer hover:bg-green-700 hover:drop-shadow-lg">
-                        <form class="" method="POST" action="{{url_for('ProductWS.delete_product', id_product=product_to_modify.id_product)}}"
-                              enctype="multipart/form-data">
-                            <input type="submit" value="Supprimer l'article" class="lg:hidden rounded-2xl p-3 m-3 bg-red-500 hover:cursor-pointer hover:bg-red-700 hover:drop-shadow-lg">
-                        </form>
-                    </div>
+                <div class="flex flex-row justify-center">
+                    <input type="submit" value="Mettre à jour" class="rounded-2xl p-3 m-3 bg-green-500 hover:cursor-pointer hover:bg-green-700 hover:drop-shadow-lg">
+                    <form class="" method="POST" action="{{url_for('ProductWS.delete_product', id_product=product_to_modify.id_product)}}"
+                          enctype="multipart/form-data">
+                        <input type="submit" value="Supprimer l'article" class="lg:hidden rounded-2xl p-3 m-3 bg-red-500 hover:cursor-pointer hover:bg-red-700 hover:drop-shadow-lg">
+                    </form>
+                </div>
 
             </form>
         </div>
 
 
-        <div class="hidden lg:block border-2 border-red-600 rounded-xl p-2 lg:w-1/3 ">
+        <div class="hidden lg:block border-2 border-red-600 rounded-xl p-2 lg:w-1/3 xl:w-1/4 ">
+
             <p class="text-center font-RobotoItalic text-red-600 my-2">Informations actuelle de l'article</p>
-            <div class="">
-                <div class="">
-                    <div class="">
-                        <img src="data:image;base64,{{ product_to_modify.image_data }}" class="w-1/2" alt="Image Article">
-                        <div class="">
-                            <h5 class="">Nom : {{ product_to_modify.name }}</h5>
-                            <p class="">Catégorie : {{ product_to_modify.category_name }}</p>
-                            <p class="">Description : {{ product_to_modify.description }}</p>
-                            <p class="">Prix : {{ product_to_modify.price }}</p>
-                            <p class="">Début promo : {{ product_to_modify.promo_start }}</p>
-                            <p class="">Fin promo : {{ product_to_modify.promo_end }}</p>
-                            <p class="">Montant promo : {{ product_to_modify.promo_amount }}%</p>
-                            <p class="">Nouveau prix : {{ product_to_modify.new_price }}%</p>
-                        </div>
-                    </div>
+
+                <div class="flex flex-col items-center justify-evenly">
+                    <img src="data:image;base64,{{ product_to_modify.image_data }}" class="w-1/2" alt="Image Article">
+
+                    <h5 class="font-bold">Nom </h5>
+                    <p>{{ product_to_modify.name }}</p>
+
+                    <h5 class="font-bold">Catégorie </h5>
+                    <p>{{ product_to_modify.category_name }}</p>
+
+                    <h5 class="font-bold">Description </h5>
+                    <p>{{ product_to_modify.description }}</p>
+
+                    <h5 class="font-bold">Prix </h5>
+                    <p>{{ product_to_modify.price }}€</p>
+
+                    <h5 class="font-bold">Début promo </h5>
+                    <p>{{ product_to_modify.promo_start }}</p>
+
+                    <h5 class="font-bold">Fin promo </h5>
+                    <p>{{ product_to_modify.promo_end }}</p>
+
+                    <h5 class="font-bold">Montant promo </h5>
+                    <p>{{ product_to_modify.promo_amount }}%</p>
+
+                    <h5 class="font-bold">Nouveau prix </h5>
+                    <p>{{ product_to_modify.new_price }}€</p>
                 </div>
-            </div>
-            <div class="">
-               <form class="" method="POST" action="{{url_for('ProductWS.delete_product', id_product=product_to_modify.id_product)}}"
+
+
+               <form class="text-center" method="POST" action="{{url_for('ProductWS.delete_product', id_product=product_to_modify.id_product)}}"
                               enctype="multipart/form-data">
                 <input type="submit" value="Supprimer l'article" class="rounded-2xl p-3 m-3 bg-red-500 hover:cursor-pointer hover:bg-red-700 hover:drop-shadow-lg">
                </form>
-            </div>
         </div>
 
     </div>

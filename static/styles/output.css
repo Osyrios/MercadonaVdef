@@ -548,6 +548,18 @@ video {
   position: static;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-2\/4 {
+  top: 50%;
+}
+
 .m-3 {
   margin: 0.75rem;
 }
@@ -653,6 +665,11 @@ video {
   height: 100%;
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -703,6 +720,10 @@ video {
 
 .items-stretch {
   align-items: stretch;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .justify-end {
@@ -1489,6 +1510,10 @@ video {
     width: 50%;
   }
 
+  .lg\:w-1\/4 {
+    width: 25%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -1519,6 +1544,10 @@ video {
 
   .xl\:w-1\/5 {
     width: 20%;
+  }
+
+  .xl\:w-1\/4 {
+    width: 25%;
   }
 
   .xl\:flex-row {
